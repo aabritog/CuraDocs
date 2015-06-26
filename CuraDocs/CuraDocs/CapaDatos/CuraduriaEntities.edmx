@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CuraduriaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="CuraduriaModelStoreContainer" />
+        <Function Name="spAutenticacionUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="user" Type="varchar" Mode="In" />
+          <Parameter Name="pass" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spBuscarDocumentosBySolicitud" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idSolicitud" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spBuscarSolicitud" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdSolicitud" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spBuscarTipoDocumento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spBuscarUsuarios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spEditarUsuarios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="user" Type="varchar" Mode="In" />
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="idPerfil" Type="int" Mode="In" />
+          <Parameter Name="pass" Type="varchar" Mode="In" />
+          <Parameter Name="nt" Type="varchar" Mode="In" />
+          <Parameter Name="estado" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="spGetMenuPerfil" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="user" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spGetPerfiles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spGuardarUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="user" Type="varchar" Mode="In" />
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="idPerfil" Type="int" Mode="In" />
+          <Parameter Name="pass" Type="varchar" Mode="In" />
+          <Parameter Name="nt" Type="varchar" Mode="In" />
+          <Parameter Name="estado" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="spInsertarImagenes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nroSolicitud" Type="int" Mode="In" />
+          <Parameter Name="ruta" Type="varchar" Mode="In" />
+          <Parameter Name="idTipoDocumento" Type="int" Mode="In" />
+          <Parameter Name="user" Type="varchar" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CuraduriaModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="CuraduriaEntities1" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="spBuscarTipoDocumento" ReturnType="Collection(CuraduriaModel.spBuscarTipoDocumento_Result)" />
+          <FunctionImport Name="spInsertarImagenes" ReturnType="Collection(CuraduriaModel.spInsertarImagenes_Result)">
+            <Parameter Name="nroSolicitud" Mode="In" Type="Int32" />
+            <Parameter Name="ruta" Mode="In" Type="String" />
+            <Parameter Name="idTipoDocumento" Mode="In" Type="Int32" />
+            <Parameter Name="user" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spGetPerfiles" ReturnType="Collection(CuraduriaModel.spGetPerfiles_Result)" />
+          <FunctionImport Name="spGuardarUsuario">
+            <Parameter Name="user" Mode="In" Type="String" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="idPerfil" Mode="In" Type="Int32" />
+            <Parameter Name="pass" Mode="In" Type="String" />
+            <Parameter Name="nt" Mode="In" Type="String" />
+            <Parameter Name="estado" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="spEditarUsuarios">
+            <Parameter Name="user" Mode="In" Type="String" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="idPerfil" Mode="In" Type="Int32" />
+            <Parameter Name="pass" Mode="In" Type="String" />
+            <Parameter Name="nt" Mode="In" Type="String" />
+            <Parameter Name="estado" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="spBuscarSolicitud" ReturnType="Collection(CuraduriaModel.spBuscarSolicitud_Result)">
+          <Parameter Name="IdSolicitud" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spBuscarUsuarios" ReturnType="Collection(CuraduriaModel.spBuscarUsuarios_Result)" />
+          <FunctionImport Name="spAutenticacionUsuario" ReturnType="Collection(CuraduriaModel.spAutenticacionUsuario_Result)">
+            <Parameter Name="user" Mode="In" Type="String" />
+            <Parameter Name="pass" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spGetMenuPerfil" ReturnType="Collection(CuraduriaModel.spGetMenuPerfil_Result)">
+          <Parameter Name="user" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spBuscarDocumentosBySolicitud" ReturnType="Collection(CuraduriaModel.spBuscarDocumentosBySolicitud_Result)">
+          <Parameter Name="idSolicitud" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="spBuscarTipoDocumento_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="documento" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="spInsertarImagenes_Result">
+          <Property Type="String" Name="resultado" Nullable="true" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="spGetPerfiles_Result">
+          <Property Type="Int32" Name="IdPerfil" Nullable="false" />
+          <Property Type="String" Name="Perfil" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="spBuscarSolicitud_Result">
+          <Property Type="Int32" Name="RESULTADO" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="spBuscarUsuarios_Result">
+          <Property Type="String" Name="Usuario" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Nombre_Completo" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Perfil" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="Fecha_Creacion" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="IdPerfil" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="spAutenticacionUsuario_Result">
+          <Property Type="String" Name="Usuario" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Perfil" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="spGetMenuPerfil_Result">
+          <Property Type="String" Name="Menu" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="NombreFormulario" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="spBuscarDocumentosBySolicitud_Result">
+          <Property Type="Int32" Name="IdTipoDocumento" Nullable="false" />
+          <Property Type="String" Name="Documento" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="IdSolicitud" Nullable="false" />
+          <Property Type="String" Name="Ruta" Nullable="false" MaxLength="1000" />
+          <Property Type="Int32" Name="IdDocumento" Nullable="false" />
+          <Property Type="DateTime" Name="FechaCreacion" Nullable="false" Precision="23" />
+          <Property Type="String" Name="UsuarioCreacion" Nullable="false" MaxLength="50" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CuraduriaModelStoreContainer" CdmEntityContainer="CuraduriaEntities1" >
+          <FunctionImportMapping FunctionImportName="spBuscarTipoDocumento" FunctionName="CuraduriaModel.Store.spBuscarTipoDocumento">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CuraduriaModel.spBuscarTipoDocumento_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="documento" ColumnName="documento" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spInsertarImagenes" FunctionName="CuraduriaModel.Store.spInsertarImagenes">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CuraduriaModel.spInsertarImagenes_Result">
+                <ScalarProperty Name="resultado" ColumnName="resultado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spGetPerfiles" FunctionName="CuraduriaModel.Store.spGetPerfiles">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CuraduriaModel.spGetPerfiles_Result">
+                <ScalarProperty Name="IdPerfil" ColumnName="IdPerfil" />
+                <ScalarProperty Name="Perfil" ColumnName="Perfil" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spGuardarUsuario" FunctionName="CuraduriaModel.Store.spGuardarUsuario" />
+          <FunctionImportMapping FunctionImportName="spEditarUsuarios" FunctionName="CuraduriaModel.Store.spEditarUsuarios" />
+          <FunctionImportMapping FunctionImportName="spBuscarSolicitud" FunctionName="CuraduriaModel.Store.spBuscarSolicitud">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CuraduriaModel.spBuscarSolicitud_Result">
+                <ScalarProperty Name="RESULTADO" ColumnName="RESULTADO" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spBuscarUsuarios" FunctionName="CuraduriaModel.Store.spBuscarUsuarios">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CuraduriaModel.spBuscarUsuarios_Result">
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Nombre_Completo" ColumnName="Nombre Completo" />
+                <ScalarProperty Name="Perfil" ColumnName="Perfil" />
+                <ScalarProperty Name="Fecha_Creacion" ColumnName="Fecha Creacion" />
+                <ScalarProperty Name="IdPerfil" ColumnName="IdPerfil" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spAutenticacionUsuario" FunctionName="CuraduriaModel.Store.spAutenticacionUsuario">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CuraduriaModel.spAutenticacionUsuario_Result">
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Perfil" ColumnName="Perfil" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spGetMenuPerfil" FunctionName="CuraduriaModel.Store.spGetMenuPerfil">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CuraduriaModel.spGetMenuPerfil_Result">
+                <ScalarProperty Name="Menu" ColumnName="Menu" />
+                <ScalarProperty Name="NombreFormulario" ColumnName="NombreFormulario" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spBuscarDocumentosBySolicitud" FunctionName="CuraduriaModel.Store.spBuscarDocumentosBySolicitud">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CuraduriaModel.spBuscarDocumentosBySolicitud_Result">
+                <ScalarProperty Name="IdTipoDocumento" ColumnName="IdTipoDocumento" />
+                <ScalarProperty Name="Documento" ColumnName="Documento" />
+                <ScalarProperty Name="IdSolicitud" ColumnName="IdSolicitud" />
+                <ScalarProperty Name="Ruta" ColumnName="Ruta" />
+                <ScalarProperty Name="IdDocumento" ColumnName="IdDocumento" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="CuraduriaEntities" />
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
