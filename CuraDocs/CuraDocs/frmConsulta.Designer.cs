@@ -39,6 +39,13 @@
             this.button1 = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.dgvArchivos = new System.Windows.Forms.DataGridView();
+            this.idTipoDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idSolicitud = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ruta = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.idDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaCargue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.userCargue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblFecha = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lblAdministrador = new System.Windows.Forms.Label();
@@ -47,13 +54,6 @@
             this.lblUsuario = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.idTipoDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idSolicitud = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ruta = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.idDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaCargue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.userCargue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArchivos)).BeginInit();
@@ -119,7 +119,7 @@
             this.txtNroRadicacion.Location = new System.Drawing.Point(404, 210);
             this.txtNroRadicacion.Name = "txtNroRadicacion";
             this.txtNroRadicacion.Size = new System.Drawing.Size(100, 20);
-            this.txtNroRadicacion.TabIndex = 5;
+            this.txtNroRadicacion.TabIndex = 1;
             this.txtNroRadicacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNroRadicacion_KeyPress);
             // 
             // button1
@@ -127,7 +127,7 @@
             this.button1.Location = new System.Drawing.Point(365, 260);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 6;
+            this.button1.TabIndex = 2;
             this.button1.Text = "Buscar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -157,6 +157,55 @@
             this.dgvArchivos.Size = new System.Drawing.Size(760, 150);
             this.dgvArchivos.TabIndex = 7;
             this.dgvArchivos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArchivos_CellContentClick);
+            // 
+            // idTipoDocumento
+            // 
+            this.idTipoDocumento.HeaderText = "idTipoDocumento";
+            this.idTipoDocumento.Name = "idTipoDocumento";
+            this.idTipoDocumento.ReadOnly = true;
+            this.idTipoDocumento.Visible = false;
+            // 
+            // nombreDocumento
+            // 
+            this.nombreDocumento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nombreDocumento.HeaderText = "Nombre Documento";
+            this.nombreDocumento.Name = "nombreDocumento";
+            this.nombreDocumento.ReadOnly = true;
+            // 
+            // idSolicitud
+            // 
+            this.idSolicitud.HeaderText = "idSolicitud";
+            this.idSolicitud.Name = "idSolicitud";
+            this.idSolicitud.ReadOnly = true;
+            this.idSolicitud.Visible = false;
+            // 
+            // ruta
+            // 
+            this.ruta.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ruta.HeaderText = "Archivo";
+            this.ruta.Name = "ruta";
+            this.ruta.ReadOnly = true;
+            this.ruta.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ruta.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // idDocumento
+            // 
+            this.idDocumento.HeaderText = "idDocumento";
+            this.idDocumento.Name = "idDocumento";
+            this.idDocumento.ReadOnly = true;
+            this.idDocumento.Visible = false;
+            // 
+            // fechaCargue
+            // 
+            this.fechaCargue.HeaderText = "Fecha Cargue";
+            this.fechaCargue.Name = "fechaCargue";
+            this.fechaCargue.ReadOnly = true;
+            // 
+            // userCargue
+            // 
+            this.userCargue.HeaderText = "Usuario Cargue";
+            this.userCargue.Name = "userCargue";
+            this.userCargue.ReadOnly = true;
             // 
             // lblFecha
             // 
@@ -241,55 +290,6 @@
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // idTipoDocumento
-            // 
-            this.idTipoDocumento.HeaderText = "idTipoDocumento";
-            this.idTipoDocumento.Name = "idTipoDocumento";
-            this.idTipoDocumento.ReadOnly = true;
-            this.idTipoDocumento.Visible = false;
-            // 
-            // nombreDocumento
-            // 
-            this.nombreDocumento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nombreDocumento.HeaderText = "Nombre Documento";
-            this.nombreDocumento.Name = "nombreDocumento";
-            this.nombreDocumento.ReadOnly = true;
-            // 
-            // idSolicitud
-            // 
-            this.idSolicitud.HeaderText = "idSolicitud";
-            this.idSolicitud.Name = "idSolicitud";
-            this.idSolicitud.ReadOnly = true;
-            this.idSolicitud.Visible = false;
-            // 
-            // ruta
-            // 
-            this.ruta.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ruta.HeaderText = "Archivo";
-            this.ruta.Name = "ruta";
-            this.ruta.ReadOnly = true;
-            this.ruta.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ruta.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // idDocumento
-            // 
-            this.idDocumento.HeaderText = "idDocumento";
-            this.idDocumento.Name = "idDocumento";
-            this.idDocumento.ReadOnly = true;
-            this.idDocumento.Visible = false;
-            // 
-            // fechaCargue
-            // 
-            this.fechaCargue.HeaderText = "Fecha Cargue";
-            this.fechaCargue.Name = "fechaCargue";
-            this.fechaCargue.ReadOnly = true;
-            // 
-            // userCargue
-            // 
-            this.userCargue.HeaderText = "Usuario Cargue";
-            this.userCargue.Name = "userCargue";
-            this.userCargue.ReadOnly = true;
             // 
             // frmConsulta
             // 

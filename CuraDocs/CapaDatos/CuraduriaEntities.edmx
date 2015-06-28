@@ -85,7 +85,7 @@
           <Parameter Name="user" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="spBuscarDocumentosBySolicitud" ReturnType="Collection(CuraduriaModel.spBuscarDocumentosBySolicitud_Result)">
-          <Parameter Name="idSolicitud" Mode="In" Type="Int32" />
+            <Parameter Name="idSolicitud" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="spBuscarTipoDocumento_Result">

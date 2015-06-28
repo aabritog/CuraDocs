@@ -44,6 +44,7 @@ namespace CuraDocs
 
             lblFecha.Text = DateTime.Now.ToString();
             timer1.Start();
+            clsGlobal.accion = "guardar";
            
         }
 

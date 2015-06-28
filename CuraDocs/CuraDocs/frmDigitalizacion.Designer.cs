@@ -123,7 +123,7 @@
             this.txtNroRadicacion.Location = new System.Drawing.Point(404, 210);
             this.txtNroRadicacion.Name = "txtNroRadicacion";
             this.txtNroRadicacion.Size = new System.Drawing.Size(100, 20);
-            this.txtNroRadicacion.TabIndex = 5;
+            this.txtNroRadicacion.TabIndex = 1;
             this.txtNroRadicacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNroRadicacion_KeyPress);
             // 
             // button1
@@ -131,7 +131,7 @@
             this.button1.Location = new System.Drawing.Point(333, 239);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(153, 23);
-            this.button1.TabIndex = 6;
+            this.button1.TabIndex = 2;
             this.button1.Text = "Buscar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -142,7 +142,7 @@
             this.txtExaminar.Name = "txtExaminar";
             this.txtExaminar.ReadOnly = true;
             this.txtExaminar.Size = new System.Drawing.Size(238, 20);
-            this.txtExaminar.TabIndex = 7;
+            this.txtExaminar.TabIndex = 3;
             // 
             // label3
             // 
@@ -159,7 +159,7 @@
             this.btnExaminar.Location = new System.Drawing.Point(443, 286);
             this.btnExaminar.Name = "btnExaminar";
             this.btnExaminar.Size = new System.Drawing.Size(75, 23);
-            this.btnExaminar.TabIndex = 9;
+            this.btnExaminar.TabIndex = 4;
             this.btnExaminar.Text = "Examinar";
             this.btnExaminar.UseVisualStyleBackColor = true;
             this.btnExaminar.Click += new System.EventHandler(this.btnExaminar_Click);
@@ -170,7 +170,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(547, 285);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(120, 23);
-            this.btnGuardar.TabIndex = 10;
+            this.btnGuardar.TabIndex = 5;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -236,7 +236,7 @@
             this.btnTerminar.Location = new System.Drawing.Point(673, 480);
             this.btnTerminar.Name = "btnTerminar";
             this.btnTerminar.Size = new System.Drawing.Size(93, 38);
-            this.btnTerminar.TabIndex = 12;
+            this.btnTerminar.TabIndex = 6;
             this.btnTerminar.Text = "Terminar";
             this.btnTerminar.UseVisualStyleBackColor = true;
             this.btnTerminar.Visible = false;

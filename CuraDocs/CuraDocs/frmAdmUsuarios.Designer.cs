@@ -169,7 +169,7 @@
             this.txtUsuario.Location = new System.Drawing.Point(331, 214);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(212, 20);
-            this.txtUsuario.TabIndex = 5;
+            this.txtUsuario.TabIndex = 4;
             this.txtUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsuario_KeyPress);
             // 
             // btnGuardar
@@ -177,7 +177,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(331, 435);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(177, 23);
-            this.btnGuardar.TabIndex = 6;
+            this.btnGuardar.TabIndex = 10;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -271,7 +271,7 @@
             this.txtPass.Location = new System.Drawing.Point(331, 286);
             this.txtPass.Name = "txtPass";
             this.txtPass.Size = new System.Drawing.Size(212, 20);
-            this.txtPass.TabIndex = 16;
+            this.txtPass.TabIndex = 6;
             this.txtPass.UseSystemPasswordChar = true;
             // 
             // label3
@@ -288,7 +288,7 @@
             this.txtRepetir.Location = new System.Drawing.Point(331, 325);
             this.txtRepetir.Name = "txtRepetir";
             this.txtRepetir.Size = new System.Drawing.Size(212, 20);
-            this.txtRepetir.TabIndex = 18;
+            this.txtRepetir.TabIndex = 7;
             this.txtRepetir.UseSystemPasswordChar = true;
             // 
             // label7
@@ -311,18 +311,19 @@
             // 
             // cbPerfil
             // 
+            this.cbPerfil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPerfil.FormattingEnabled = true;
             this.cbPerfil.Location = new System.Drawing.Point(331, 357);
             this.cbPerfil.Name = "cbPerfil";
             this.cbPerfil.Size = new System.Drawing.Size(212, 21);
-            this.cbPerfil.TabIndex = 20;
+            this.cbPerfil.TabIndex = 8;
             // 
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(331, 251);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(212, 20);
-            this.txtNombre.TabIndex = 22;
+            this.txtNombre.TabIndex = 5;
             this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // label9
@@ -343,7 +344,7 @@
             this.chkActivo.Location = new System.Drawing.Point(331, 399);
             this.chkActivo.Name = "chkActivo";
             this.chkActivo.Size = new System.Drawing.Size(56, 17);
-            this.chkActivo.TabIndex = 24;
+            this.chkActivo.TabIndex = 9;
             this.chkActivo.Text = "Activo";
             this.chkActivo.UseVisualStyleBackColor = true;
             // 

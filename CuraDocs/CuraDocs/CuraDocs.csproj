@@ -33,6 +33,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -83,12 +86,6 @@
     </Compile>
     <Compile Include="frmPrincipal.Designer.cs">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmUsuarioNotificacion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmUsuarioNotificacion.Designer.cs">
-      <DependentUpon>frmUsuarioNotificacion.cs</DependentUpon>
     </Compile>
     <Compile Include="Global.cs" />
     <Compile Include="Program.cs" />
@@ -143,6 +140,9 @@
       <Project>{81EF3364-F89A-4CE2-86E6-702AF69BB849}</Project>
       <Name>CapaNegocio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="logo.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
