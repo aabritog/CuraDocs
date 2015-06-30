@@ -81,6 +81,12 @@
     <Compile Include="frmDigitalizacion.Designer.cs">
       <DependentUpon>frmDigitalizacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmNotificacionUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNotificacionUsuario.Designer.cs">
+      <DependentUpon>frmNotificacionUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDigitalizacion.resx">
       <DependentUpon>frmDigitalizacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNotificacionUsuario.resx">
+      <DependentUpon>frmNotificacionUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>

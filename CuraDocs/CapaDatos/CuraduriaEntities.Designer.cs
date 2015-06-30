@@ -303,14 +303,6 @@ namespace CapaDatos
         /// <summary>
         /// No hay documentación de metadatos disponible.
         /// </summary>
-        public ObjectResult<spBuscarUsuarios_Result> spBuscarUsuarios()
-        {
-            return base.ExecuteFunction<spBuscarUsuarios_Result>("spBuscarUsuarios");
-        }
-    
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
         /// <param name="user">No hay documentación de metadatos disponible.</param>
         /// <param name="pass">No hay documentación de metadatos disponible.</param>
         public ObjectResult<spAutenticacionUsuario_Result> spAutenticacionUsuario(global::System.String user, global::System.String pass)
@@ -374,6 +366,93 @@ namespace CapaDatos
             }
     
             return base.ExecuteFunction<spBuscarDocumentosBySolicitud_Result>("spBuscarDocumentosBySolicitud", idSolicitudParameter);
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        public ObjectResult<spGetTipoTramite_Result> spGetTipoTramite()
+        {
+            return base.ExecuteFunction<spGetTipoTramite_Result>("spGetTipoTramite");
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        /// <param name="sUsuario">No hay documentación de metadatos disponible.</param>
+        public ObjectResult<spGetUsuarioTipoTramite_Result> spGetUsuarioTipoTramite(global::System.String sUsuario)
+        {
+            ObjectParameter sUsuarioParameter;
+            if (sUsuario != null)
+            {
+                sUsuarioParameter = new ObjectParameter("sUsuario", sUsuario);
+            }
+            else
+            {
+                sUsuarioParameter = new ObjectParameter("sUsuario", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction<spGetUsuarioTipoTramite_Result>("spGetUsuarioTipoTramite", sUsuarioParameter);
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        /// <param name="sUsuario">No hay documentación de metadatos disponible.</param>
+        public ObjectResult<spBuscarUsuarios_Result> spBuscarUsuarios(global::System.String sUsuario)
+        {
+            ObjectParameter sUsuarioParameter;
+            if (sUsuario != null)
+            {
+                sUsuarioParameter = new ObjectParameter("sUsuario", sUsuario);
+            }
+            else
+            {
+                sUsuarioParameter = new ObjectParameter("sUsuario", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction<spBuscarUsuarios_Result>("spBuscarUsuarios", sUsuarioParameter);
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        /// <param name="sUsuario">No hay documentación de metadatos disponible.</param>
+        /// <param name="nIdTipoTramite">No hay documentación de metadatos disponible.</param>
+        /// <param name="nAction">No hay documentación de metadatos disponible.</param>
+        public ObjectResult<spInsDelValUsuarioTipoTramite_Result> spInsDelValUsuarioTipoTramite(global::System.String sUsuario, Nullable<global::System.Int32> nIdTipoTramite, Nullable<global::System.Int32> nAction)
+        {
+            ObjectParameter sUsuarioParameter;
+            if (sUsuario != null)
+            {
+                sUsuarioParameter = new ObjectParameter("sUsuario", sUsuario);
+            }
+            else
+            {
+                sUsuarioParameter = new ObjectParameter("sUsuario", typeof(global::System.String));
+            }
+    
+            ObjectParameter nIdTipoTramiteParameter;
+            if (nIdTipoTramite.HasValue)
+            {
+                nIdTipoTramiteParameter = new ObjectParameter("nIdTipoTramite", nIdTipoTramite);
+            }
+            else
+            {
+                nIdTipoTramiteParameter = new ObjectParameter("nIdTipoTramite", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter nActionParameter;
+            if (nAction.HasValue)
+            {
+                nActionParameter = new ObjectParameter("nAction", nAction);
+            }
+            else
+            {
+                nActionParameter = new ObjectParameter("nAction", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<spInsDelValUsuarioTipoTramite_Result>("spInsDelValUsuarioTipoTramite", sUsuarioParameter, nIdTipoTramiteParameter, nActionParameter);
         }
 
         #endregion
@@ -1099,6 +1178,306 @@ namespace CapaDatos
         private global::System.String _Perfil;
         partial void OnPerfilChanging(global::System.String value);
         partial void OnPerfilChanged();
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No hay documentación de metadatos disponible.
+    /// </summary>
+    [EdmComplexTypeAttribute(NamespaceName="CuraduriaModel", Name="spGetTipoTramite_Result")]
+    [DataContractAttribute(IsReference=true)]
+    [Serializable()]
+    public partial class spGetTipoTramite_Result : ComplexObject
+    {
+        #region Método de generador
+    
+        /// <summary>
+        /// Crear un nuevo objeto spGetTipoTramite_Result.
+        /// </summary>
+        /// <param name="idTipoTramite">Valor inicial de la propiedad IdTipoTramite.</param>
+        /// <param name="tipoTramite">Valor inicial de la propiedad TipoTramite.</param>
+        /// <param name="estado">Valor inicial de la propiedad Estado.</param>
+        public static spGetTipoTramite_Result CreatespGetTipoTramite_Result(global::System.Int32 idTipoTramite, global::System.String tipoTramite, global::System.Boolean estado)
+        {
+            spGetTipoTramite_Result spGetTipoTramite_Result = new spGetTipoTramite_Result();
+            spGetTipoTramite_Result.IdTipoTramite = idTipoTramite;
+            spGetTipoTramite_Result.TipoTramite = tipoTramite;
+            spGetTipoTramite_Result.Estado = estado;
+            return spGetTipoTramite_Result;
+        }
+
+        #endregion
+
+        #region Propiedades primitivas
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 IdTipoTramite
+        {
+            get
+            {
+                return _IdTipoTramite;
+            }
+            set
+            {
+                OnIdTipoTramiteChanging(value);
+                ReportPropertyChanging("IdTipoTramite");
+                _IdTipoTramite = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdTipoTramite");
+                OnIdTipoTramiteChanged();
+            }
+        }
+        private global::System.Int32 _IdTipoTramite;
+        partial void OnIdTipoTramiteChanging(global::System.Int32 value);
+        partial void OnIdTipoTramiteChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String TipoTramite
+        {
+            get
+            {
+                return _TipoTramite;
+            }
+            set
+            {
+                OnTipoTramiteChanging(value);
+                ReportPropertyChanging("TipoTramite");
+                _TipoTramite = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("TipoTramite");
+                OnTipoTramiteChanged();
+            }
+        }
+        private global::System.String _TipoTramite;
+        partial void OnTipoTramiteChanging(global::System.String value);
+        partial void OnTipoTramiteChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean Estado
+        {
+            get
+            {
+                return _Estado;
+            }
+            set
+            {
+                OnEstadoChanging(value);
+                ReportPropertyChanging("Estado");
+                _Estado = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Estado");
+                OnEstadoChanged();
+            }
+        }
+        private global::System.Boolean _Estado;
+        partial void OnEstadoChanging(global::System.Boolean value);
+        partial void OnEstadoChanged();
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No hay documentación de metadatos disponible.
+    /// </summary>
+    [EdmComplexTypeAttribute(NamespaceName="CuraduriaModel", Name="spGetUsuarioTipoTramite_Result")]
+    [DataContractAttribute(IsReference=true)]
+    [Serializable()]
+    public partial class spGetUsuarioTipoTramite_Result : ComplexObject
+    {
+        #region Método de generador
+    
+        /// <summary>
+        /// Crear un nuevo objeto spGetUsuarioTipoTramite_Result.
+        /// </summary>
+        /// <param name="sUsuario">Valor inicial de la propiedad sUsuario.</param>
+        /// <param name="nIdTipoTramite">Valor inicial de la propiedad nIdTipoTramite.</param>
+        /// <param name="tipoTramite">Valor inicial de la propiedad TipoTramite.</param>
+        /// <param name="dFecha">Valor inicial de la propiedad dFecha.</param>
+        /// <param name="nEstado">Valor inicial de la propiedad nEstado.</param>
+        public static spGetUsuarioTipoTramite_Result CreatespGetUsuarioTipoTramite_Result(global::System.String sUsuario, global::System.Int32 nIdTipoTramite, global::System.String tipoTramite, global::System.DateTime dFecha, global::System.Int32 nEstado)
+        {
+            spGetUsuarioTipoTramite_Result spGetUsuarioTipoTramite_Result = new spGetUsuarioTipoTramite_Result();
+            spGetUsuarioTipoTramite_Result.sUsuario = sUsuario;
+            spGetUsuarioTipoTramite_Result.nIdTipoTramite = nIdTipoTramite;
+            spGetUsuarioTipoTramite_Result.TipoTramite = tipoTramite;
+            spGetUsuarioTipoTramite_Result.dFecha = dFecha;
+            spGetUsuarioTipoTramite_Result.nEstado = nEstado;
+            return spGetUsuarioTipoTramite_Result;
+        }
+
+        #endregion
+
+        #region Propiedades primitivas
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String sUsuario
+        {
+            get
+            {
+                return _sUsuario;
+            }
+            set
+            {
+                OnsUsuarioChanging(value);
+                ReportPropertyChanging("sUsuario");
+                _sUsuario = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("sUsuario");
+                OnsUsuarioChanged();
+            }
+        }
+        private global::System.String _sUsuario;
+        partial void OnsUsuarioChanging(global::System.String value);
+        partial void OnsUsuarioChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 nIdTipoTramite
+        {
+            get
+            {
+                return _nIdTipoTramite;
+            }
+            set
+            {
+                OnnIdTipoTramiteChanging(value);
+                ReportPropertyChanging("nIdTipoTramite");
+                _nIdTipoTramite = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("nIdTipoTramite");
+                OnnIdTipoTramiteChanged();
+            }
+        }
+        private global::System.Int32 _nIdTipoTramite;
+        partial void OnnIdTipoTramiteChanging(global::System.Int32 value);
+        partial void OnnIdTipoTramiteChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String TipoTramite
+        {
+            get
+            {
+                return _TipoTramite;
+            }
+            set
+            {
+                OnTipoTramiteChanging(value);
+                ReportPropertyChanging("TipoTramite");
+                _TipoTramite = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("TipoTramite");
+                OnTipoTramiteChanged();
+            }
+        }
+        private global::System.String _TipoTramite;
+        partial void OnTipoTramiteChanging(global::System.String value);
+        partial void OnTipoTramiteChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime dFecha
+        {
+            get
+            {
+                return _dFecha;
+            }
+            set
+            {
+                OndFechaChanging(value);
+                ReportPropertyChanging("dFecha");
+                _dFecha = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("dFecha");
+                OndFechaChanged();
+            }
+        }
+        private global::System.DateTime _dFecha;
+        partial void OndFechaChanging(global::System.DateTime value);
+        partial void OndFechaChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 nEstado
+        {
+            get
+            {
+                return _nEstado;
+            }
+            set
+            {
+                OnnEstadoChanging(value);
+                ReportPropertyChanging("nEstado");
+                _nEstado = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("nEstado");
+                OnnEstadoChanged();
+            }
+        }
+        private global::System.Int32 _nEstado;
+        partial void OnnEstadoChanging(global::System.Int32 value);
+        partial void OnnEstadoChanged();
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No hay documentación de metadatos disponible.
+    /// </summary>
+    [EdmComplexTypeAttribute(NamespaceName="CuraduriaModel", Name="spInsDelValUsuarioTipoTramite_Result")]
+    [DataContractAttribute(IsReference=true)]
+    [Serializable()]
+    public partial class spInsDelValUsuarioTipoTramite_Result : ComplexObject
+    {
+        #region Propiedades primitivas
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> nResult
+        {
+            get
+            {
+                return _nResult;
+            }
+            set
+            {
+                OnnResultChanging(value);
+                ReportPropertyChanging("nResult");
+                _nResult = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("nResult");
+                OnnResultChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _nResult;
+        partial void OnnResultChanging(Nullable<global::System.Int32> value);
+        partial void OnnResultChanged();
 
         #endregion
 

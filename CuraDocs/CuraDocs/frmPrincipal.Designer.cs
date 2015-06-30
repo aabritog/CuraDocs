@@ -38,6 +38,9 @@
             this.consultaDeDocumentos = new System.Windows.Forms.ToolStripMenuItem();
             this.administración = new System.Windows.Forms.ToolStripMenuItem();
             this.usuarios = new System.Windows.Forms.ToolStripMenuItem();
+            this.notificaciones = new System.Windows.Forms.ToolStripMenuItem();
+            this.activar = new System.Windows.Forms.ToolStripMenuItem();
+            this.desactivar = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblFecha = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -46,9 +49,7 @@
             this.lblUsuario = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.notificaciones = new System.Windows.Forms.ToolStripMenuItem();
-            this.activar = new System.Windows.Forms.ToolStripMenuItem();
-            this.desactivar = new System.Windows.Forms.ToolStripMenuItem();
+            this.configurarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.menu.SuspendLayout();
@@ -134,6 +135,30 @@
             this.usuarios.Text = "Usuarios";
             this.usuarios.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
+            // notificaciones
+            // 
+            this.notificaciones.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.activar,
+            this.desactivar,
+            this.configurarToolStripMenuItem});
+            this.notificaciones.Name = "notificaciones";
+            this.notificaciones.Size = new System.Drawing.Size(153, 22);
+            this.notificaciones.Text = "Notificaciones";
+            // 
+            // activar
+            // 
+            this.activar.Name = "activar";
+            this.activar.Size = new System.Drawing.Size(152, 22);
+            this.activar.Text = "Activar";
+            this.activar.Click += new System.EventHandler(this.activarToolStripMenuItem_Click);
+            // 
+            // desactivar
+            // 
+            this.desactivar.Name = "desactivar";
+            this.desactivar.Size = new System.Drawing.Size(152, 22);
+            this.desactivar.Text = "Desactivar";
+            this.desactivar.Click += new System.EventHandler(this.desactivarToolStripMenuItem_Click);
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Blue;
@@ -218,28 +243,12 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // notificaciones
+            // configurarToolStripMenuItem
             // 
-            this.notificaciones.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.activar,
-            this.desactivar});
-            this.notificaciones.Name = "notificaciones";
-            this.notificaciones.Size = new System.Drawing.Size(153, 22);
-            this.notificaciones.Text = "Notificaciones";
-            // 
-            // activar
-            // 
-            this.activar.Name = "activar";
-            this.activar.Size = new System.Drawing.Size(152, 22);
-            this.activar.Text = "Activar";
-            this.activar.Click += new System.EventHandler(this.activarToolStripMenuItem_Click);
-            // 
-            // desactivar
-            // 
-            this.desactivar.Name = "desactivar";
-            this.desactivar.Size = new System.Drawing.Size(152, 22);
-            this.desactivar.Text = "Desactivar";
-            this.desactivar.Click += new System.EventHandler(this.desactivarToolStripMenuItem_Click);
+            this.configurarToolStripMenuItem.Name = "configurarToolStripMenuItem";
+            this.configurarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.configurarToolStripMenuItem.Text = "Configurar";
+            this.configurarToolStripMenuItem.Click += new System.EventHandler(this.configurarToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 
@@ -289,5 +298,6 @@
         private System.Windows.Forms.ToolStripMenuItem notificaciones;
         private System.Windows.Forms.ToolStripMenuItem activar;
         private System.Windows.Forms.ToolStripMenuItem desactivar;
+        private System.Windows.Forms.ToolStripMenuItem configurarToolStripMenuItem;
     }
 }

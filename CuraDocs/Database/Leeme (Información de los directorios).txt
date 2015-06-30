@@ -1,0 +1,5 @@
+Database/Procedures/: Carpeta que contiene todos los procedimientos almacenados que existen en la BD del sistema CuraDocs. Si el procedimiento almacenado es modificado debe guardarse los cambios para que los otros usuarios puedan compilarlo en su BD local y de esta manera todos estaremos usando los mismos objetos al actualizar el repositorio.
+
+Database/Scripts/Data_Definition/: Carpeta que contiene todos los script que afectan la definicion de la base de datos, es decir, scripts de creación de tablas, alteracion de tablas, sinonimos, triggers, etc.
+
+Database/Scripts/Data_Data_Manipulation/: Carpeta que contiene todos los script que alteran la información contenida en cualquiera de las tablas, es decir, scripts de INSERT, UPDATE, DELETE.

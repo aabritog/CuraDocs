@@ -158,6 +158,12 @@ namespace CuraDocs
             lblFecha.Text = DateTime.Now.ToString();
         }
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
 
     }
 }

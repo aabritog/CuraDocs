@@ -93,5 +93,11 @@ namespace CuraDocs
             clsGlobal.notificaciones = false;
             MessageBox.Show("Envio de Notificaciones se ha Desactivado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void configurarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmNotificacionUsuario form = new frmNotificacionUsuario();
+            form.ShowDialog();
+        }
     }
 }

@@ -19,6 +19,7 @@ namespace CuraDocs
        public static bool admTermino=false;
        public static string accion = string.Empty;
        public static bool notificaciones;
+       public static int nAction;
             
     }
 }

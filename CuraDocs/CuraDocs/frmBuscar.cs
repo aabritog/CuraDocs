@@ -28,7 +28,7 @@ namespace CuraDocs
                 switch (clsGlobal.frmtext.ToString())
                 {
                     case "frmAdmUsuarios":
-                        bs.DataSource = datacontext.spBuscarUsuarios().ToList();
+                        bs.DataSource = datacontext.spBuscarUsuarios(null).ToList();
                         dgvBuscar.DataSource = bs.DataSource;
                         dgvBuscar.Columns[4].Visible = false;
                         dgvBuscar.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -69,7 +69,7 @@ namespace CuraDocs
         {
             try
             {
-                List<spBuscarUsuarios_Result> listaUsuarios = datacontext.spBuscarUsuarios().ToList();
+                List<spBuscarUsuarios_Result> listaUsuarios = datacontext.spBuscarUsuarios(null).ToList();
 
                 
                

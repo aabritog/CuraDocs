@@ -17,7 +17,9 @@
           <Parameter Name="IdSolicitud" Type="int" Mode="In" />
         </Function>
         <Function Name="spBuscarTipoDocumento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="spBuscarUsuarios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spBuscarUsuarios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="sUsuario" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="spEditarUsuarios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="user" Type="varchar" Mode="In" />
           <Parameter Name="nombre" Type="varchar" Mode="In" />
@@ -30,6 +32,10 @@
           <Parameter Name="user" Type="varchar" Mode="In" />
         </Function>
         <Function Name="spGetPerfiles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spGetTipoTramite" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spGetUsuarioTipoTramite" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="sUsuario" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="spGuardarUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="user" Type="varchar" Mode="In" />
           <Parameter Name="nombre" Type="varchar" Mode="In" />
@@ -37,6 +43,11 @@
           <Parameter Name="pass" Type="varchar" Mode="In" />
           <Parameter Name="nt" Type="varchar" Mode="In" />
           <Parameter Name="estado" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="spInsDelValUsuarioTipoTramite" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="sUsuario" Type="varchar" Mode="In" />
+          <Parameter Name="nIdTipoTramite" Type="int" Mode="In" />
+          <Parameter Name="nAction" Type="int" Mode="In" />
         </Function>
         <Function Name="spInsertarImagenes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="nroSolicitud" Type="int" Mode="In" />
@@ -76,7 +87,6 @@
           <FunctionImport Name="spBuscarSolicitud" ReturnType="Collection(CuraduriaModel.spBuscarSolicitud_Result)">
           <Parameter Name="IdSolicitud" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="spBuscarUsuarios" ReturnType="Collection(CuraduriaModel.spBuscarUsuarios_Result)" />
           <FunctionImport Name="spAutenticacionUsuario" ReturnType="Collection(CuraduriaModel.spAutenticacionUsuario_Result)">
             <Parameter Name="user" Mode="In" Type="String" />
             <Parameter Name="pass" Mode="In" Type="String" />
@@ -85,7 +95,19 @@
           <Parameter Name="user" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="spBuscarDocumentosBySolicitud" ReturnType="Collection(CuraduriaModel.spBuscarDocumentosBySolicitud_Result)">
-            <Parameter Name="idSolicitud" Mode="In" Type="Int32" />
+          <Parameter Name="idSolicitud" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spGetTipoTramite" ReturnType="Collection(CuraduriaModel.spGetTipoTramite_Result)" />
+          <FunctionImport Name="spGetUsuarioTipoTramite" ReturnType="Collection(CuraduriaModel.spGetUsuarioTipoTramite_Result)">
+          <Parameter Name="sUsuario" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spBuscarUsuarios" ReturnType="Collection(CuraduriaModel.spBuscarUsuarios_Result)">
+          <Parameter Name="sUsuario" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spInsDelValUsuarioTipoTramite" ReturnType="Collection(CuraduriaModel.spInsDelValUsuarioTipoTramite_Result)">
+            <Parameter Name="sUsuario" Mode="In" Type="String" />
+            <Parameter Name="nIdTipoTramite" Mode="In" Type="Int32" />
+            <Parameter Name="nAction" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="spBuscarTipoDocumento_Result">
@@ -101,13 +123,6 @@
         </ComplexType>
         <ComplexType Name="spBuscarSolicitud_Result">
           <Property Type="Int32" Name="RESULTADO" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="spBuscarUsuarios_Result">
-          <Property Type="String" Name="Usuario" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="Nombre_Completo" Nullable="false" MaxLength="100" />
-          <Property Type="String" Name="Perfil" Nullable="false" MaxLength="50" />
-          <Property Type="DateTime" Name="Fecha_Creacion" Nullable="false" Precision="23" />
-          <Property Type="Int32" Name="IdPerfil" Nullable="false" />
         </ComplexType>
         <ComplexType Name="spAutenticacionUsuario_Result">
           <Property Type="String" Name="Usuario" Nullable="false" MaxLength="50" />
@@ -125,6 +140,28 @@
           <Property Type="Int32" Name="IdDocumento" Nullable="false" />
           <Property Type="DateTime" Name="FechaCreacion" Nullable="false" Precision="23" />
           <Property Type="String" Name="UsuarioCreacion" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="spGetTipoTramite_Result">
+          <Property Type="Int32" Name="IdTipoTramite" Nullable="false" />
+          <Property Type="String" Name="TipoTramite" Nullable="false" MaxLength="50" />
+          <Property Type="Boolean" Name="Estado" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="spGetUsuarioTipoTramite_Result">
+          <Property Type="String" Name="sUsuario" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="nIdTipoTramite" Nullable="false" />
+          <Property Type="String" Name="TipoTramite" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="dFecha" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="nEstado" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="spBuscarUsuarios_Result">
+          <Property Type="String" Name="Usuario" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Nombre_Completo" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Perfil" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="Fecha_Creacion" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="IdPerfil" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="spInsDelValUsuarioTipoTramite_Result">
+          <Property Type="Int32" Name="nResult" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -164,17 +201,6 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="spBuscarUsuarios" FunctionName="CuraduriaModel.Store.spBuscarUsuarios">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="CuraduriaModel.spBuscarUsuarios_Result">
-                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
-                <ScalarProperty Name="Nombre_Completo" ColumnName="Nombre Completo" />
-                <ScalarProperty Name="Perfil" ColumnName="Perfil" />
-                <ScalarProperty Name="Fecha_Creacion" ColumnName="Fecha Creacion" />
-                <ScalarProperty Name="IdPerfil" ColumnName="IdPerfil" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="spAutenticacionUsuario" FunctionName="CuraduriaModel.Store.spAutenticacionUsuario">
             <ResultMapping>
               <ComplexTypeMapping TypeName="CuraduriaModel.spAutenticacionUsuario_Result">
@@ -201,6 +227,44 @@
                 <ScalarProperty Name="IdDocumento" ColumnName="IdDocumento" />
                 <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
                 <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spGetTipoTramite" FunctionName="CuraduriaModel.Store.spGetTipoTramite">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CuraduriaModel.spGetTipoTramite_Result">
+                <ScalarProperty Name="IdTipoTramite" ColumnName="IdTipoTramite" />
+                <ScalarProperty Name="TipoTramite" ColumnName="TipoTramite" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spGetUsuarioTipoTramite" FunctionName="CuraduriaModel.Store.spGetUsuarioTipoTramite">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CuraduriaModel.spGetUsuarioTipoTramite_Result">
+                <ScalarProperty Name="sUsuario" ColumnName="sUsuario" />
+                <ScalarProperty Name="nIdTipoTramite" ColumnName="nIdTipoTramite" />
+                <ScalarProperty Name="TipoTramite" ColumnName="TipoTramite" />
+                <ScalarProperty Name="dFecha" ColumnName="dFecha" />
+                <ScalarProperty Name="nEstado" ColumnName="nEstado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spBuscarUsuarios" FunctionName="CuraduriaModel.Store.spBuscarUsuarios">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CuraduriaModel.spBuscarUsuarios_Result">
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Nombre_Completo" ColumnName="Nombre Completo" />
+                <ScalarProperty Name="Perfil" ColumnName="Perfil" />
+                <ScalarProperty Name="Fecha_Creacion" ColumnName="Fecha Creacion" />
+                <ScalarProperty Name="IdPerfil" ColumnName="IdPerfil" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spInsDelValUsuarioTipoTramite" FunctionName="CuraduriaModel.Store.spInsDelValUsuarioTipoTramite">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CuraduriaModel.spInsDelValUsuarioTipoTramite_Result">
+                <ScalarProperty Name="nResult" ColumnName="nResult" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

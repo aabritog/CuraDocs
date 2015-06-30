@@ -27,7 +27,7 @@ namespace CuraDocs
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             List<spAutenticacionUsuario_Result> listaUsuario = new List<spAutenticacionUsuario_Result>();
-            listaUsuario = datacontext.spAutenticacionUsuario(textBox1.Text, textBox2.Text).ToList();
+            listaUsuario = datacontext.spAutenticacionUsuario(textBox1.Text,textBox2.Text).ToList();
 
             if (listaUsuario.Count > 0)
             {
@@ -48,6 +48,12 @@ namespace CuraDocs
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.KeyChar = char.ToUpper(e.KeyChar);
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            textBox1.Text = "ABRITO";
+            textBox2.Text = "root";
         }
     }
 }
