@@ -56,6 +56,9 @@
             this.lblUsuario = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.lblEtiquetaTramite = new System.Windows.Forms.Label();
+            this.lblTipoTramite = new System.Windows.Forms.Label();
+            this.lblIdTipoTramite = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -327,12 +330,45 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // lblEtiquetaTramite
+            // 
+            this.lblEtiquetaTramite.AutoSize = true;
+            this.lblEtiquetaTramite.Location = new System.Drawing.Point(544, 213);
+            this.lblEtiquetaTramite.Name = "lblEtiquetaTramite";
+            this.lblEtiquetaTramite.Size = new System.Drawing.Size(69, 13);
+            this.lblEtiquetaTramite.TabIndex = 14;
+            this.lblEtiquetaTramite.Text = "Tipo Trámite:";
+            this.lblEtiquetaTramite.Visible = false;
+            // 
+            // lblTipoTramite
+            // 
+            this.lblTipoTramite.AutoSize = true;
+            this.lblTipoTramite.Location = new System.Drawing.Point(620, 213);
+            this.lblTipoTramite.Name = "lblTipoTramite";
+            this.lblTipoTramite.Size = new System.Drawing.Size(35, 13);
+            this.lblTipoTramite.TabIndex = 15;
+            this.lblTipoTramite.Text = "label7";
+            this.lblTipoTramite.Visible = false;
+            // 
+            // lblIdTipoTramite
+            // 
+            this.lblIdTipoTramite.AutoSize = true;
+            this.lblIdTipoTramite.Location = new System.Drawing.Point(620, 239);
+            this.lblIdTipoTramite.Name = "lblIdTipoTramite";
+            this.lblIdTipoTramite.Size = new System.Drawing.Size(72, 13);
+            this.lblIdTipoTramite.TabIndex = 16;
+            this.lblIdTipoTramite.Text = "IdTipoTramite";
+            this.lblIdTipoTramite.Visible = false;
+            // 
             // frmDigitalizacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.lblIdTipoTramite);
+            this.Controls.Add(this.lblTipoTramite);
+            this.Controls.Add(this.lblEtiquetaTramite);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnTerminar);
             this.Controls.Add(this.groupBox1);
@@ -391,5 +427,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label lblEtiquetaTramite;
+        private System.Windows.Forms.Label lblTipoTramite;
+        private System.Windows.Forms.Label lblIdTipoTramite;
     }
 }

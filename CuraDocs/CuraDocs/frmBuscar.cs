@@ -33,6 +33,7 @@ namespace CuraDocs
                         dgvBuscar.Columns[4].Visible = false;
                         dgvBuscar.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                         dgvBuscar.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                        dgvBuscar.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                         break;
                 }
             }
@@ -54,6 +55,15 @@ namespace CuraDocs
                         clsGlobal.admUsuario = dgvBuscar.CurrentRow.Cells[0].Value.ToString();
                         clsGlobal.idPerfil = Convert.ToInt32(dgvBuscar.CurrentRow.Cells[4].Value.ToString());
                         clsGlobal.admTermino = true;
+                        if (dgvBuscar.CurrentRow.Cells[5].Value == null)
+                        {
+                            clsGlobal.admCorreo = string.Empty;
+                        }
+                        else
+                        {
+                            clsGlobal.admCorreo = dgvBuscar.CurrentRow.Cells[5].Value.ToString();
+                        }
+                        
                         break;
                 }
 

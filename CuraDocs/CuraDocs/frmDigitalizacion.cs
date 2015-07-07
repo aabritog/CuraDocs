@@ -8,6 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 using CapaDatos;
 using System.IO;
+using System.Net;
+using System.Net.Mail;
 
 namespace CuraDocs
 {
@@ -52,6 +54,12 @@ namespace CuraDocs
 
             if (resultado == 1)
             {
+                List<spGetTipoTramiteBySolicitud_Result> lstTipoTramite = new List<spGetTipoTramiteBySolicitud_Result>();
+                lstTipoTramite = datacontext.spGetTipoTramiteBySolicitud(Convert.ToInt32(txtNroRadicacion.Text)).ToList();
+                lblIdTipoTramite.Text = lstTipoTramite.FirstOrDefault().IdTipoTramite.ToString();
+                lblTipoTramite.Text = lstTipoTramite.FirstOrDefault().TipoTramite.ToString();
+                lblEtiquetaTramite.Visible = true;
+                lblTipoTramite.Visible = true;
                 txtNroRadicacion.ReadOnly = true;
                 btnExaminar.Enabled = true;
                 btnGuardar.Enabled = true;
@@ -159,27 +167,60 @@ namespace CuraDocs
 
         private void btnTerminar_Click(object sender, EventArgs e)
         {
-            if (cargo && clsGlobal.notificaciones)
+            try
             {
-                // aqui se envia correo a profesionales....
-            }
+                if (cargo && clsGlobal.notificaciones)
+                {
+                    List<spGetCorreosNotificacion_Result> lstCorreos = new List<spGetCorreosNotificacion_Result>();
+                    lstCorreos = datacontext.spGetCorreosNotificacion(Convert.ToInt32(lblIdTipoTramite.Text)).ToList();
+                    foreach (spGetCorreosNotificacion_Result correo in lstCorreos)
+                    {
+                        MailMessage _correo = new MailMessage();
+                        _correo.From = new MailAddress("ing.antonyab@gmail.com");
+                        _correo.To.Add(correo.Correo.ToString());
+                        _correo.Subject = "Notificacion de CuraDocs Nro Solicitud: " + txtNroRadicacion.Text.ToString();
+                        _correo.CC.Add(new MailAddress("ing.aabg@gmail.com"));
+                        _correo.Body = "Esto es una prueba de envio de notificaciones de CuraDocs /n La Solicitud " + txtNroRadicacion.Text.ToString() + " se le han digitalizado imagenes para se evaluacion";
+                        _correo.IsBodyHtml = false;
+                        _correo.Priority = MailPriority.Normal;
 
-            groupBox1.Visible = false;
-            btnTerminar.Visible = false;
-            btnExaminar.Enabled = false;
-            btnGuardar.Enabled = false;
-            txtNroRadicacion.ReadOnly = false;
-            button1.Enabled = true;
-            txtExaminar.Text = string.Empty;
-            txtNroRadicacion.Text = string.Empty;
-            txtNroRadicacion.Focus();
-            foreach (DataGridViewRow row in dgvTipoDocumentos.Rows)
-            {
-                row.Cells[2].Value = 0;
-                row.Cells[2].ReadOnly = false;
-                row.Visible = true;
+                        SmtpClient smtp = new SmtpClient();
+                        smtp.Credentials = new NetworkCredential("ing.antonyab", "anto.1907");
+                        //smtp.UseDefaultCredentials = false;
+                        smtp.Host = "smtp.gmail.com";
+                        smtp.Port = 587;
+                        smtp.EnableSsl = true;
+
+                        smtp.Send(_correo);
+                        MessageBox.Show("Correo Enviado Correctamente", "Mensaje");
+                    }
+                    // aqui se envia correo a profesionales....
+
+                }
+
+                groupBox1.Visible = false;
+                btnTerminar.Visible = false;
+                btnExaminar.Enabled = false;
+                btnGuardar.Enabled = false;
+                txtNroRadicacion.ReadOnly = false;
+                button1.Enabled = true;
+                txtExaminar.Text = string.Empty;
+                txtNroRadicacion.Text = string.Empty;
+                txtNroRadicacion.Focus();
+                lblEtiquetaTramite.Visible = false;
+                lblTipoTramite.Visible = false;
+                foreach (DataGridViewRow row in dgvTipoDocumentos.Rows)
+                {
+                    row.Cells[2].Value = 0;
+                    row.Cells[2].ReadOnly = false;
+                    row.Visible = true;
+                }
+                dgvTipoDocumentos.Rows[0].Cells[1].Selected = true;
             }
-            dgvTipoDocumentos.Rows[0].Cells[1].Selected=true;
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK);
+            }
 
         }
 

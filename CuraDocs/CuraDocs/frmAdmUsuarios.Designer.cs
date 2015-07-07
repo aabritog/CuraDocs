@@ -57,6 +57,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.chkActivo = new System.Windows.Forms.CheckBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtCorreo = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -175,10 +177,10 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(331, 435);
+            this.btnGuardar.Location = new System.Drawing.Point(331, 469);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(177, 23);
-            this.btnGuardar.TabIndex = 10;
+            this.btnGuardar.TabIndex = 11;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -304,7 +306,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(292, 366);
+            this.label8.Location = new System.Drawing.Point(292, 400);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(33, 13);
             this.label8.TabIndex = 19;
@@ -314,10 +316,10 @@
             // 
             this.cbPerfil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPerfil.FormattingEnabled = true;
-            this.cbPerfil.Location = new System.Drawing.Point(331, 357);
+            this.cbPerfil.Location = new System.Drawing.Point(331, 391);
             this.cbPerfil.Name = "cbPerfil";
             this.cbPerfil.Size = new System.Drawing.Size(212, 21);
-            this.cbPerfil.TabIndex = 8;
+            this.cbPerfil.TabIndex = 9;
             // 
             // txtNombre
             // 
@@ -342,10 +344,10 @@
             this.chkActivo.Checked = true;
             this.chkActivo.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkActivo.Enabled = false;
-            this.chkActivo.Location = new System.Drawing.Point(331, 399);
+            this.chkActivo.Location = new System.Drawing.Point(331, 433);
             this.chkActivo.Name = "chkActivo";
             this.chkActivo.Size = new System.Drawing.Size(56, 17);
-            this.chkActivo.TabIndex = 9;
+            this.chkActivo.TabIndex = 10;
             this.chkActivo.Text = "Activo";
             this.chkActivo.UseVisualStyleBackColor = true;
             // 
@@ -353,12 +355,30 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(284, 362);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(41, 13);
+            this.label10.TabIndex = 22;
+            this.label10.Text = "Correo:";
+            // 
+            // txtCorreo
+            // 
+            this.txtCorreo.Location = new System.Drawing.Point(331, 359);
+            this.txtCorreo.Name = "txtCorreo";
+            this.txtCorreo.Size = new System.Drawing.Size(212, 20);
+            this.txtCorreo.TabIndex = 8;
+            // 
             // frmAdmUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.txtCorreo);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.chkActivo);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.label9);
@@ -420,5 +440,7 @@
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.CheckBox chkActivo;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtCorreo;
     }
 }

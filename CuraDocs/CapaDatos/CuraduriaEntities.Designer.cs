@@ -136,154 +136,6 @@ namespace CapaDatos
         /// <summary>
         /// No hay documentación de metadatos disponible.
         /// </summary>
-        /// <param name="user">No hay documentación de metadatos disponible.</param>
-        /// <param name="nombre">No hay documentación de metadatos disponible.</param>
-        /// <param name="idPerfil">No hay documentación de metadatos disponible.</param>
-        /// <param name="pass">No hay documentación de metadatos disponible.</param>
-        /// <param name="nt">No hay documentación de metadatos disponible.</param>
-        /// <param name="estado">No hay documentación de metadatos disponible.</param>
-        public int spGuardarUsuario(global::System.String user, global::System.String nombre, Nullable<global::System.Int32> idPerfil, global::System.String pass, global::System.String nt, Nullable<global::System.Boolean> estado)
-        {
-            ObjectParameter userParameter;
-            if (user != null)
-            {
-                userParameter = new ObjectParameter("user", user);
-            }
-            else
-            {
-                userParameter = new ObjectParameter("user", typeof(global::System.String));
-            }
-    
-            ObjectParameter nombreParameter;
-            if (nombre != null)
-            {
-                nombreParameter = new ObjectParameter("nombre", nombre);
-            }
-            else
-            {
-                nombreParameter = new ObjectParameter("nombre", typeof(global::System.String));
-            }
-    
-            ObjectParameter idPerfilParameter;
-            if (idPerfil.HasValue)
-            {
-                idPerfilParameter = new ObjectParameter("idPerfil", idPerfil);
-            }
-            else
-            {
-                idPerfilParameter = new ObjectParameter("idPerfil", typeof(global::System.Int32));
-            }
-    
-            ObjectParameter passParameter;
-            if (pass != null)
-            {
-                passParameter = new ObjectParameter("pass", pass);
-            }
-            else
-            {
-                passParameter = new ObjectParameter("pass", typeof(global::System.String));
-            }
-    
-            ObjectParameter ntParameter;
-            if (nt != null)
-            {
-                ntParameter = new ObjectParameter("nt", nt);
-            }
-            else
-            {
-                ntParameter = new ObjectParameter("nt", typeof(global::System.String));
-            }
-    
-            ObjectParameter estadoParameter;
-            if (estado.HasValue)
-            {
-                estadoParameter = new ObjectParameter("estado", estado);
-            }
-            else
-            {
-                estadoParameter = new ObjectParameter("estado", typeof(global::System.Boolean));
-            }
-    
-            return base.ExecuteFunction("spGuardarUsuario", userParameter, nombreParameter, idPerfilParameter, passParameter, ntParameter, estadoParameter);
-        }
-    
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
-        /// <param name="user">No hay documentación de metadatos disponible.</param>
-        /// <param name="nombre">No hay documentación de metadatos disponible.</param>
-        /// <param name="idPerfil">No hay documentación de metadatos disponible.</param>
-        /// <param name="pass">No hay documentación de metadatos disponible.</param>
-        /// <param name="nt">No hay documentación de metadatos disponible.</param>
-        /// <param name="estado">No hay documentación de metadatos disponible.</param>
-        public int spEditarUsuarios(global::System.String user, global::System.String nombre, Nullable<global::System.Int32> idPerfil, global::System.String pass, global::System.String nt, Nullable<global::System.Boolean> estado)
-        {
-            ObjectParameter userParameter;
-            if (user != null)
-            {
-                userParameter = new ObjectParameter("user", user);
-            }
-            else
-            {
-                userParameter = new ObjectParameter("user", typeof(global::System.String));
-            }
-    
-            ObjectParameter nombreParameter;
-            if (nombre != null)
-            {
-                nombreParameter = new ObjectParameter("nombre", nombre);
-            }
-            else
-            {
-                nombreParameter = new ObjectParameter("nombre", typeof(global::System.String));
-            }
-    
-            ObjectParameter idPerfilParameter;
-            if (idPerfil.HasValue)
-            {
-                idPerfilParameter = new ObjectParameter("idPerfil", idPerfil);
-            }
-            else
-            {
-                idPerfilParameter = new ObjectParameter("idPerfil", typeof(global::System.Int32));
-            }
-    
-            ObjectParameter passParameter;
-            if (pass != null)
-            {
-                passParameter = new ObjectParameter("pass", pass);
-            }
-            else
-            {
-                passParameter = new ObjectParameter("pass", typeof(global::System.String));
-            }
-    
-            ObjectParameter ntParameter;
-            if (nt != null)
-            {
-                ntParameter = new ObjectParameter("nt", nt);
-            }
-            else
-            {
-                ntParameter = new ObjectParameter("nt", typeof(global::System.String));
-            }
-    
-            ObjectParameter estadoParameter;
-            if (estado.HasValue)
-            {
-                estadoParameter = new ObjectParameter("estado", estado);
-            }
-            else
-            {
-                estadoParameter = new ObjectParameter("estado", typeof(global::System.Boolean));
-            }
-    
-            return base.ExecuteFunction("spEditarUsuarios", userParameter, nombreParameter, idPerfilParameter, passParameter, ntParameter, estadoParameter);
-        }
-    
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
         /// <param name="idSolicitud">No hay documentación de metadatos disponible.</param>
         public ObjectResult<spBuscarSolicitud_Result> spBuscarSolicitud(Nullable<global::System.Int32> idSolicitud)
         {
@@ -399,25 +251,6 @@ namespace CapaDatos
         /// No hay documentación de metadatos disponible.
         /// </summary>
         /// <param name="sUsuario">No hay documentación de metadatos disponible.</param>
-        public ObjectResult<spBuscarUsuarios_Result> spBuscarUsuarios(global::System.String sUsuario)
-        {
-            ObjectParameter sUsuarioParameter;
-            if (sUsuario != null)
-            {
-                sUsuarioParameter = new ObjectParameter("sUsuario", sUsuario);
-            }
-            else
-            {
-                sUsuarioParameter = new ObjectParameter("sUsuario", typeof(global::System.String));
-            }
-    
-            return base.ExecuteFunction<spBuscarUsuarios_Result>("spBuscarUsuarios", sUsuarioParameter);
-        }
-    
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
-        /// <param name="sUsuario">No hay documentación de metadatos disponible.</param>
         /// <param name="nIdTipoTramite">No hay documentación de metadatos disponible.</param>
         /// <param name="nAction">No hay documentación de metadatos disponible.</param>
         public ObjectResult<spInsDelValUsuarioTipoTramite_Result> spInsDelValUsuarioTipoTramite(global::System.String sUsuario, Nullable<global::System.Int32> nIdTipoTramite, Nullable<global::System.Int32> nAction)
@@ -453,6 +286,233 @@ namespace CapaDatos
             }
     
             return base.ExecuteFunction<spInsDelValUsuarioTipoTramite_Result>("spInsDelValUsuarioTipoTramite", sUsuarioParameter, nIdTipoTramiteParameter, nActionParameter);
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        /// <param name="user">No hay documentación de metadatos disponible.</param>
+        /// <param name="nombre">No hay documentación de metadatos disponible.</param>
+        /// <param name="idPerfil">No hay documentación de metadatos disponible.</param>
+        /// <param name="pass">No hay documentación de metadatos disponible.</param>
+        /// <param name="nt">No hay documentación de metadatos disponible.</param>
+        /// <param name="estado">No hay documentación de metadatos disponible.</param>
+        /// <param name="correo">No hay documentación de metadatos disponible.</param>
+        public int spGuardarUsuario(global::System.String user, global::System.String nombre, Nullable<global::System.Int32> idPerfil, global::System.String pass, global::System.String nt, Nullable<global::System.Boolean> estado, global::System.String correo)
+        {
+            ObjectParameter userParameter;
+            if (user != null)
+            {
+                userParameter = new ObjectParameter("user", user);
+            }
+            else
+            {
+                userParameter = new ObjectParameter("user", typeof(global::System.String));
+            }
+    
+            ObjectParameter nombreParameter;
+            if (nombre != null)
+            {
+                nombreParameter = new ObjectParameter("nombre", nombre);
+            }
+            else
+            {
+                nombreParameter = new ObjectParameter("nombre", typeof(global::System.String));
+            }
+    
+            ObjectParameter idPerfilParameter;
+            if (idPerfil.HasValue)
+            {
+                idPerfilParameter = new ObjectParameter("idPerfil", idPerfil);
+            }
+            else
+            {
+                idPerfilParameter = new ObjectParameter("idPerfil", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter passParameter;
+            if (pass != null)
+            {
+                passParameter = new ObjectParameter("pass", pass);
+            }
+            else
+            {
+                passParameter = new ObjectParameter("pass", typeof(global::System.String));
+            }
+    
+            ObjectParameter ntParameter;
+            if (nt != null)
+            {
+                ntParameter = new ObjectParameter("nt", nt);
+            }
+            else
+            {
+                ntParameter = new ObjectParameter("nt", typeof(global::System.String));
+            }
+    
+            ObjectParameter estadoParameter;
+            if (estado.HasValue)
+            {
+                estadoParameter = new ObjectParameter("estado", estado);
+            }
+            else
+            {
+                estadoParameter = new ObjectParameter("estado", typeof(global::System.Boolean));
+            }
+    
+            ObjectParameter correoParameter;
+            if (correo != null)
+            {
+                correoParameter = new ObjectParameter("correo", correo);
+            }
+            else
+            {
+                correoParameter = new ObjectParameter("correo", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction("spGuardarUsuario", userParameter, nombreParameter, idPerfilParameter, passParameter, ntParameter, estadoParameter, correoParameter);
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        /// <param name="user">No hay documentación de metadatos disponible.</param>
+        /// <param name="nombre">No hay documentación de metadatos disponible.</param>
+        /// <param name="idPerfil">No hay documentación de metadatos disponible.</param>
+        /// <param name="pass">No hay documentación de metadatos disponible.</param>
+        /// <param name="nt">No hay documentación de metadatos disponible.</param>
+        /// <param name="estado">No hay documentación de metadatos disponible.</param>
+        /// <param name="correo">No hay documentación de metadatos disponible.</param>
+        public int spEditarUsuarios(global::System.String user, global::System.String nombre, Nullable<global::System.Int32> idPerfil, global::System.String pass, global::System.String nt, Nullable<global::System.Boolean> estado, global::System.String correo)
+        {
+            ObjectParameter userParameter;
+            if (user != null)
+            {
+                userParameter = new ObjectParameter("user", user);
+            }
+            else
+            {
+                userParameter = new ObjectParameter("user", typeof(global::System.String));
+            }
+    
+            ObjectParameter nombreParameter;
+            if (nombre != null)
+            {
+                nombreParameter = new ObjectParameter("nombre", nombre);
+            }
+            else
+            {
+                nombreParameter = new ObjectParameter("nombre", typeof(global::System.String));
+            }
+    
+            ObjectParameter idPerfilParameter;
+            if (idPerfil.HasValue)
+            {
+                idPerfilParameter = new ObjectParameter("idPerfil", idPerfil);
+            }
+            else
+            {
+                idPerfilParameter = new ObjectParameter("idPerfil", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter passParameter;
+            if (pass != null)
+            {
+                passParameter = new ObjectParameter("pass", pass);
+            }
+            else
+            {
+                passParameter = new ObjectParameter("pass", typeof(global::System.String));
+            }
+    
+            ObjectParameter ntParameter;
+            if (nt != null)
+            {
+                ntParameter = new ObjectParameter("nt", nt);
+            }
+            else
+            {
+                ntParameter = new ObjectParameter("nt", typeof(global::System.String));
+            }
+    
+            ObjectParameter estadoParameter;
+            if (estado.HasValue)
+            {
+                estadoParameter = new ObjectParameter("estado", estado);
+            }
+            else
+            {
+                estadoParameter = new ObjectParameter("estado", typeof(global::System.Boolean));
+            }
+    
+            ObjectParameter correoParameter;
+            if (correo != null)
+            {
+                correoParameter = new ObjectParameter("correo", correo);
+            }
+            else
+            {
+                correoParameter = new ObjectParameter("correo", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction("spEditarUsuarios", userParameter, nombreParameter, idPerfilParameter, passParameter, ntParameter, estadoParameter, correoParameter);
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        /// <param name="sUsuario">No hay documentación de metadatos disponible.</param>
+        public ObjectResult<spBuscarUsuarios_Result> spBuscarUsuarios(global::System.String sUsuario)
+        {
+            ObjectParameter sUsuarioParameter;
+            if (sUsuario != null)
+            {
+                sUsuarioParameter = new ObjectParameter("sUsuario", sUsuario);
+            }
+            else
+            {
+                sUsuarioParameter = new ObjectParameter("sUsuario", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction<spBuscarUsuarios_Result>("spBuscarUsuarios", sUsuarioParameter);
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        /// <param name="idSolicitud">No hay documentación de metadatos disponible.</param>
+        public ObjectResult<spGetTipoTramiteBySolicitud_Result> spGetTipoTramiteBySolicitud(Nullable<global::System.Int32> idSolicitud)
+        {
+            ObjectParameter idSolicitudParameter;
+            if (idSolicitud.HasValue)
+            {
+                idSolicitudParameter = new ObjectParameter("IdSolicitud", idSolicitud);
+            }
+            else
+            {
+                idSolicitudParameter = new ObjectParameter("IdSolicitud", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<spGetTipoTramiteBySolicitud_Result>("spGetTipoTramiteBySolicitud", idSolicitudParameter);
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        /// <param name="idTipoTramite">No hay documentación de metadatos disponible.</param>
+        public ObjectResult<spGetCorreosNotificacion_Result> spGetCorreosNotificacion(Nullable<global::System.Int32> idTipoTramite)
+        {
+            ObjectParameter idTipoTramiteParameter;
+            if (idTipoTramite.HasValue)
+            {
+                idTipoTramiteParameter = new ObjectParameter("IdTipoTramite", idTipoTramite);
+            }
+            else
+            {
+                idTipoTramiteParameter = new ObjectParameter("IdTipoTramite", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<spGetCorreosNotificacion_Result>("spGetCorreosNotificacion", idTipoTramiteParameter);
         }
 
         #endregion
@@ -1020,6 +1080,68 @@ namespace CapaDatos
         private global::System.Int32 _IdPerfil;
         partial void OnIdPerfilChanging(global::System.Int32 value);
         partial void OnIdPerfilChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Correo
+        {
+            get
+            {
+                return _Correo;
+            }
+            set
+            {
+                OnCorreoChanging(value);
+                ReportPropertyChanging("Correo");
+                _Correo = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Correo");
+                OnCorreoChanged();
+            }
+        }
+        private global::System.String _Correo;
+        partial void OnCorreoChanging(global::System.String value);
+        partial void OnCorreoChanged();
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No hay documentación de metadatos disponible.
+    /// </summary>
+    [EdmComplexTypeAttribute(NamespaceName="CuraduriaModel", Name="spGetCorreosNotificacion_Result")]
+    [DataContractAttribute(IsReference=true)]
+    [Serializable()]
+    public partial class spGetCorreosNotificacion_Result : ComplexObject
+    {
+        #region Propiedades primitivas
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Correo
+        {
+            get
+            {
+                return _Correo;
+            }
+            set
+            {
+                OnCorreoChanging(value);
+                ReportPropertyChanging("Correo");
+                _Correo = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Correo");
+                OnCorreoChanged();
+            }
+        }
+        private global::System.String _Correo;
+        partial void OnCorreoChanging(global::System.String value);
+        partial void OnCorreoChanged();
 
         #endregion
 
@@ -1283,6 +1405,83 @@ namespace CapaDatos
         private global::System.Boolean _Estado;
         partial void OnEstadoChanging(global::System.Boolean value);
         partial void OnEstadoChanged();
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No hay documentación de metadatos disponible.
+    /// </summary>
+    [EdmComplexTypeAttribute(NamespaceName="CuraduriaModel", Name="spGetTipoTramiteBySolicitud_Result")]
+    [DataContractAttribute(IsReference=true)]
+    [Serializable()]
+    public partial class spGetTipoTramiteBySolicitud_Result : ComplexObject
+    {
+        #region Método de generador
+    
+        /// <summary>
+        /// Crear un nuevo objeto spGetTipoTramiteBySolicitud_Result.
+        /// </summary>
+        /// <param name="tipoTramite">Valor inicial de la propiedad TipoTramite.</param>
+        public static spGetTipoTramiteBySolicitud_Result CreatespGetTipoTramiteBySolicitud_Result(global::System.String tipoTramite)
+        {
+            spGetTipoTramiteBySolicitud_Result spGetTipoTramiteBySolicitud_Result = new spGetTipoTramiteBySolicitud_Result();
+            spGetTipoTramiteBySolicitud_Result.TipoTramite = tipoTramite;
+            return spGetTipoTramiteBySolicitud_Result;
+        }
+
+        #endregion
+
+        #region Propiedades primitivas
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdTipoTramite
+        {
+            get
+            {
+                return _IdTipoTramite;
+            }
+            set
+            {
+                OnIdTipoTramiteChanging(value);
+                ReportPropertyChanging("IdTipoTramite");
+                _IdTipoTramite = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdTipoTramite");
+                OnIdTipoTramiteChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdTipoTramite;
+        partial void OnIdTipoTramiteChanging(Nullable<global::System.Int32> value);
+        partial void OnIdTipoTramiteChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String TipoTramite
+        {
+            get
+            {
+                return _TipoTramite;
+            }
+            set
+            {
+                OnTipoTramiteChanging(value);
+                ReportPropertyChanging("TipoTramite");
+                _TipoTramite = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("TipoTramite");
+                OnTipoTramiteChanged();
+            }
+        }
+        private global::System.String _TipoTramite;
+        partial void OnTipoTramiteChanging(global::System.String value);
+        partial void OnTipoTramiteChanged();
 
         #endregion
 

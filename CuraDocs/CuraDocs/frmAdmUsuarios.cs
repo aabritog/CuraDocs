@@ -61,6 +61,7 @@ namespace CuraDocs
                 txtUsuario.Text = clsGlobal.admUsuario;
                 txtNombre.Text = clsGlobal.admNombreCompleto;
                 cbPerfil.SelectedValue = clsGlobal.idPerfil;
+                txtCorreo.Text = clsGlobal.admCorreo;
                 clsGlobal.admTermino = false;
             }
         }
@@ -68,7 +69,7 @@ namespace CuraDocs
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             bool estado;
-            if (string.IsNullOrEmpty(txtUsuario.Text) || string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrEmpty(txtPass.Text) || string.IsNullOrEmpty(txtRepetir.Text))
+            if (string.IsNullOrEmpty(txtUsuario.Text) || string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrEmpty(txtPass.Text) || string.IsNullOrEmpty(txtRepetir.Text) || string.IsNullOrEmpty(txtCorreo.Text))
             {
                 MessageBox.Show("Debe completar todos los campos.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -83,11 +84,11 @@ namespace CuraDocs
                     estado = chkActivo.Checked ? true : false;
                     if (clsGlobal.accion == "guardar")
                     {
-                        datacontext.spGuardarUsuario(txtUsuario.Text, txtNombre.Text, Convert.ToInt32(cbPerfil.SelectedValue), txtPass.Text, lblUsuario.Text, estado);
+                        datacontext.spGuardarUsuario(txtUsuario.Text, txtNombre.Text, Convert.ToInt32(cbPerfil.SelectedValue), txtPass.Text, lblUsuario.Text, estado,txtCorreo.Text);
                     }
                     else
                     {
-                        datacontext.spEditarUsuarios(txtUsuario.Text, txtNombre.Text, Convert.ToInt32(cbPerfil.SelectedValue), txtPass.Text, lblUsuario.Text, estado);
+                        datacontext.spEditarUsuarios(txtUsuario.Text, txtNombre.Text, Convert.ToInt32(cbPerfil.SelectedValue), txtPass.Text, lblUsuario.Text, estado,txtCorreo.Text);
                     }
                     MessageBox.Show("Usuario Guardado Correctamente.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     bloquearCampos();
@@ -110,6 +111,8 @@ namespace CuraDocs
             chkActivo.Checked = true;
             chkActivo.Enabled = false;
             btnGuardar.Enabled = true;
+            txtCorreo.Text = string.Empty;
+            txtCorreo.Enabled = true;
             txtUsuario.Focus();
             clsGlobal.accion = "guardar";
         }
@@ -124,6 +127,7 @@ namespace CuraDocs
             btnEditar.Enabled = true;
             chkActivo.Enabled = false;
             btnGuardar.Enabled = false;
+            txtCorreo.Enabled = false;
         }
 
         private void desbloquearCampos()
@@ -135,6 +139,7 @@ namespace CuraDocs
             btnEditar.Enabled = false;
             chkActivo.Enabled = true;
             btnGuardar.Enabled = true;
+            txtCorreo.Enabled = true;
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
