@@ -35,6 +35,7 @@
         <Function Name="spGetMenuPerfil" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="user" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="spGetOpcSistema" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="spGetPerfiles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="spGetTipoTramite" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="spGetTipoTramiteBySolicitud" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -62,6 +63,9 @@
           <Parameter Name="ruta" Type="varchar" Mode="In" />
           <Parameter Name="idTipoDocumento" Type="int" Mode="In" />
           <Parameter Name="user" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spUpdOpcSistema" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nNotificacionMail" Type="int" Mode="In" />
         </Function>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -123,7 +127,11 @@
           <Parameter Name="IdSolicitud" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spGetCorreosNotificacion" ReturnType="Collection(CuraduriaModel.spGetCorreosNotificacion_Result)">
-            <Parameter Name="IdTipoTramite" Mode="In" Type="Int32" />
+          <Parameter Name="IdTipoTramite" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spGetOpcSistema" ReturnType="Collection(CuraduriaModel.spGetOpcSistema_Result)" />
+          <FunctionImport Name="spUpdOpcSistema">
+            <Parameter Name="nNotificacionMail" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="spBuscarTipoDocumento_Result">
@@ -186,6 +194,19 @@
         </ComplexType>
         <ComplexType Name="spGetCorreosNotificacion_Result">
           <Property Type="String" Name="Correo" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="spGetOpcSistema_Result">
+          <Property Type="Int32" Name="nId" Nullable="false" />
+          <Property Type="Int32" Name="nNotificacionMail" Nullable="true" />
+          <Property Type="String" Name="sFromMail" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="sSubjectMail" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="sBodyMail" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="sUserNameCredentialsMail" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="sPasswordCredentialsMail" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="sHostMail" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="nPortMail" Nullable="true" />
+          <Property Type="Boolean" Name="bEnableSsl" Nullable="true" />
+          <Property Type="String" Name="sCcMail" Nullable="true" MaxLength="100" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -308,6 +329,24 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spGetOpcSistema" FunctionName="CuraduriaModel.Store.spGetOpcSistema">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CuraduriaModel.spGetOpcSistema_Result">
+                <ScalarProperty Name="nId" ColumnName="nId" />
+                <ScalarProperty Name="nNotificacionMail" ColumnName="nNotificacionMail" />
+                <ScalarProperty Name="sFromMail" ColumnName="sFromMail" />
+                <ScalarProperty Name="sSubjectMail" ColumnName="sSubjectMail" />
+                <ScalarProperty Name="sBodyMail" ColumnName="sBodyMail" />
+                <ScalarProperty Name="sUserNameCredentialsMail" ColumnName="sUserNameCredentialsMail" />
+                <ScalarProperty Name="sPasswordCredentialsMail" ColumnName="sPasswordCredentialsMail" />
+                <ScalarProperty Name="sHostMail" ColumnName="sHostMail" />
+                <ScalarProperty Name="nPortMail" ColumnName="nPortMail" />
+                <ScalarProperty Name="bEnableSsl" ColumnName="bEnableSsl" />
+                <ScalarProperty Name="sCcMail" ColumnName="sCcMail" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spUpdOpcSistema" FunctionName="CuraduriaModel.Store.spUpdOpcSistema" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

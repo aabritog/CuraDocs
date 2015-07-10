@@ -179,7 +179,7 @@
             // 
             this.btnGuardar.Location = new System.Drawing.Point(331, 469);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(177, 23);
+            this.btnGuardar.Size = new System.Drawing.Size(212, 23);
             this.btnGuardar.TabIndex = 11;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
@@ -306,7 +306,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(292, 400);
+            this.label8.Location = new System.Drawing.Point(292, 397);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(33, 13);
             this.label8.TabIndex = 19;
@@ -397,8 +397,9 @@
             this.Controls.Add(this.pictureBox1);
             this.ForeColor = System.Drawing.Color.Black;
             this.Name = "frmAdmUsuarios";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Usuarios";
+            this.Text = "CuraDocs - Administrar Usuario";
             this.Activated += new System.EventHandler(this.frmAdmUsuarios_Activated);
             this.Load += new System.EventHandler(this.frmAdmUsuarios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

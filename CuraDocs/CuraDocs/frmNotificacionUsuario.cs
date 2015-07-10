@@ -23,55 +23,55 @@ namespace CuraDocs
             List<spBuscarUsuarios_Result> listaUsuario = new List<spBuscarUsuarios_Result>();
             listaUsuario = datacontext.spBuscarUsuarios(null).ToList();
             listaUsuario.Insert(0, new spBuscarUsuarios_Result() { IdPerfil = 0, Usuario = "Seleccione..." });
-            cbUsuario.DataSource = listaUsuario;
-            cbUsuario.DisplayMember = "Usuario";
-            cbUsuario.ValueMember = "Usuario";
+            CBUsuario.DataSource = listaUsuario;
+            CBUsuario.DisplayMember = "Usuario";
+            CBUsuario.ValueMember = "Usuario";
 
             bs.DataSource = datacontext.spGetTipoTramite().ToList();
            
-            dgvTipoTramite.DataSource = bs.DataSource;
-            dgvTipoTramite.Columns[0].Name = "nIdTipoTramite";
-            dgvTipoTramite.Columns[1].Name = "sTipoTramite";
-            dgvTipoTramite.Columns[2].Name = "nEstado";
-            dgvTipoTramite.Columns[0].Visible = true;
-            dgvTipoTramite.Columns[1].Visible = true;
-            dgvTipoTramite.Columns[2].Visible = false;
-            dgvTipoTramite.Columns[0].HeaderText = "Código";
-            dgvTipoTramite.Columns[1].HeaderText = "Trámite";
-            dgvTipoTramite.Columns[0].Width = 50;
-            dgvTipoTramite.Columns[1].Width = 320;
-            dgvTipoTramite.ClearSelection();
+            DGVTipoTramite.DataSource = bs.DataSource;
+            DGVTipoTramite.Columns[0].Name = "nIdTipoTramite";
+            DGVTipoTramite.Columns[1].Name = "sTipoTramite";
+            DGVTipoTramite.Columns[2].Name = "nEstado";
+            DGVTipoTramite.Columns[0].Visible = true;
+            DGVTipoTramite.Columns[1].Visible = true;
+            DGVTipoTramite.Columns[2].Visible = false;
+            DGVTipoTramite.Columns[0].HeaderText = "Código";
+            DGVTipoTramite.Columns[1].HeaderText = "Trámite";
+            DGVTipoTramite.Columns[0].Width = 50;
+            DGVTipoTramite.Columns[1].Width = 320;
+            DGVTipoTramite.ClearSelection();
     
         }
 
         // LoadTramiteUsuario: Metodo que permite cargar en un DataGridView los tramites asociados a un usuario especifico.
         private void LoadTramiteUsuario() 
         {
-            bs2.DataSource = datacontext.spGetUsuarioTipoTramite(cbUsuario.SelectedValue.ToString());
+            bs2.DataSource = datacontext.spGetUsuarioTipoTramite(CBUsuario.SelectedValue.ToString());
 
-            dgvUsuarioTipoTramite.DataSource = bs2.DataSource;
-            dgvUsuarioTipoTramite.Columns[0].Name = "sUsuario";
-            dgvUsuarioTipoTramite.Columns[1].Name = "nIdTipoTramite";
-            dgvUsuarioTipoTramite.Columns[2].Name = "sTipoTramite";
-            dgvUsuarioTipoTramite.Columns[3].Name = "dFecha";
-            dgvUsuarioTipoTramite.Columns[4].Name = "nEstado";
-            dgvUsuarioTipoTramite.Columns[0].Visible = false;
-            dgvUsuarioTipoTramite.Columns[1].Visible = true;
-            dgvUsuarioTipoTramite.Columns[2].Visible = true;
-            dgvUsuarioTipoTramite.Columns[3].Visible = false;
-            dgvUsuarioTipoTramite.Columns[4].Visible = false;
-            dgvUsuarioTipoTramite.Columns[1].Width = 50;
-            dgvUsuarioTipoTramite.Columns[2].Width = 320;
-            dgvUsuarioTipoTramite.Columns[1].HeaderText = "Código";
-            dgvUsuarioTipoTramite.Columns[2].HeaderText = "Trámite";
-            dgvUsuarioTipoTramite.ClearSelection();
+            DGVUsuarioTipoTramite.DataSource = bs2.DataSource;
+            DGVUsuarioTipoTramite.Columns[0].Name = "sUsuario";
+            DGVUsuarioTipoTramite.Columns[1].Name = "nIdTipoTramite";
+            DGVUsuarioTipoTramite.Columns[2].Name = "sTipoTramite";
+            DGVUsuarioTipoTramite.Columns[3].Name = "dFecha";
+            DGVUsuarioTipoTramite.Columns[4].Name = "nEstado";
+            DGVUsuarioTipoTramite.Columns[0].Visible = false;
+            DGVUsuarioTipoTramite.Columns[1].Visible = true;
+            DGVUsuarioTipoTramite.Columns[2].Visible = true;
+            DGVUsuarioTipoTramite.Columns[3].Visible = false;
+            DGVUsuarioTipoTramite.Columns[4].Visible = false;
+            DGVUsuarioTipoTramite.Columns[1].Width = 50;
+            DGVUsuarioTipoTramite.Columns[2].Width = 320;
+            DGVUsuarioTipoTramite.Columns[1].HeaderText = "Código";
+            DGVUsuarioTipoTramite.Columns[2].HeaderText = "Trámite";
+            DGVUsuarioTipoTramite.ClearSelection();
 
-            TBValidarUsuario.Text = cbUsuario.SelectedValue.ToString();
+            TBValidarUsuario.Text = CBUsuario.SelectedValue.ToString();
 
-            if (cbUsuario.SelectedValue.ToString().Trim() != "Seleccione...")
+            if (CBUsuario.SelectedValue.ToString().Trim() != "Seleccione...")
             {
                 List<spBuscarUsuarios_Result> listaUsuario = new List<spBuscarUsuarios_Result>();
-                listaUsuario = datacontext.spBuscarUsuarios(cbUsuario.SelectedValue.ToString()).ToList();
+                listaUsuario = datacontext.spBuscarUsuarios(CBUsuario.SelectedValue.ToString()).ToList();
                 lblNombreCompleto.Text = listaUsuario.FirstOrDefault().Nombre_Completo.ToString();
                 lblPerfil.Text = listaUsuario.FirstOrDefault().Perfil.ToString();
             }
@@ -107,45 +107,46 @@ namespace CuraDocs
         {
             LoadTramiteUsuario();
 
-            if (cbUsuario.SelectedValue == "Seleccione usuario")
+            if (CBUsuario.SelectedValue == "Seleccione...")
             {
-                dgvTipoTramite.Enabled = false;
-                dgvUsuarioTipoTramite.Enabled = false;
-                dgvTipoTramite.ClearSelection();
-                dgvUsuarioTipoTramite.ClearSelection();
+                DGVTipoTramite.Enabled = false;
+                DGVUsuarioTipoTramite.Enabled = false;
+                DGVTipoTramite.ClearSelection();
+                DGVUsuarioTipoTramite.ClearSelection();
             }
                 else
                 {
-                    dgvTipoTramite.Enabled = true;
-                    dgvUsuarioTipoTramite.Enabled = true;
-                    dgvTipoTramite.ClearSelection();
-                    dgvUsuarioTipoTramite.ClearSelection();
+                    DGVTipoTramite.Enabled = true;
+                    DGVUsuarioTipoTramite.Enabled = true;
+                    DGVTipoTramite.ClearSelection();
+                    DGVUsuarioTipoTramite.ClearSelection();
                 }
 
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
+            //Se inicializan los objetos de la forma
             lblNombreCompleto.Text = "Seleccione usuario";
             lblPerfil.Text = "Seleccione usuario";
-            dgvTipoTramite.ClearSelection();
-            dgvUsuarioTipoTramite.ClearSelection();
-            dgvUsuarioTipoTramite.DataSource = null;
-            cbUsuario.SelectedValue = "Seleccione...";
+            DGVTipoTramite.ClearSelection();
+            DGVUsuarioTipoTramite.ClearSelection();
+            DGVUsuarioTipoTramite.DataSource = null;
+            CBUsuario.SelectedValue = "Seleccione...";
             TBValidarUsuario.Clear();
             TBValidarTipoTramite.Clear();
             BTNAdd.Enabled = false;
             BTNDel.Enabled = false;
-            dgvTipoTramite.Enabled = false;
-            dgvUsuarioTipoTramite.Enabled = false;
+            DGVTipoTramite.Enabled = false;
+            DGVUsuarioTipoTramite.Enabled = false;
         }
 
         private void dgvTipoTramite_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             BTNAdd.Enabled = true;
             BTNDel.Enabled = false;
-            dgvUsuarioTipoTramite.ClearSelection();
-            TBValidarTipoTramite.Text = dgvTipoTramite.CurrentRow.Cells[0].Value.ToString();
+            DGVUsuarioTipoTramite.ClearSelection();
+            TBValidarTipoTramite.Text = DGVTipoTramite.CurrentRow.Cells[0].Value.ToString();
         }
 
         private void BTNAdd_Click(object sender, EventArgs e)
@@ -153,13 +154,13 @@ namespace CuraDocs
             clsGlobal.nAction = 3;
             if (string.IsNullOrEmpty(TBValidarUsuario.Text))
             {
-                MessageBox.Show("Debe seleccionar un usuario.", "CuraDocs - Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Debe seleccionar un usuario.", clsGlobal.sTextoInformativoMarcoMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else 
             {
                 if (string.IsNullOrEmpty(TBValidarTipoTramite.Text))
                 {
-                    MessageBox.Show("Debe seleccionar el tramite a agregar.", "CuraDocs - Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Debe seleccionar el trámite a agregar.", clsGlobal.sTextoInformativoMarcoMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else 
                 {
@@ -168,20 +169,20 @@ namespace CuraDocs
                     
                     if (Convert.ToInt32(listaUsuario.First().nResult) == 1)
                     {
-                        dgvTipoTramite.ClearSelection();
-                        dgvUsuarioTipoTramite.ClearSelection();
+                        DGVTipoTramite.ClearSelection();
+                        DGVUsuarioTipoTramite.ClearSelection();
                         BTNAdd.Enabled = false;
-                        MessageBox.Show("El usuario ya posee el tramite seleccionado, seleccione otro.", "CuraDocs - Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("El usuario ya posee el trámite seleccionado, elija otro.", clsGlobal.sTextoInformativoMarcoMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
                         clsGlobal.nAction = 1;
                         datacontext.spInsDelValUsuarioTipoTramite(TBValidarUsuario.Text.ToString(), Convert.ToInt32(TBValidarTipoTramite.Text),clsGlobal.nAction);
                         LoadTramiteUsuario();
-                        dgvTipoTramite.ClearSelection();
-                        dgvUsuarioTipoTramite.ClearSelection();
+                        DGVTipoTramite.ClearSelection();
+                        DGVUsuarioTipoTramite.ClearSelection();
                         BTNAdd.Enabled = false;
-                        MessageBox.Show("Tramite agregado.", "CuraDocs - Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Trámite agregado.", clsGlobal.sTextoInformativoMarcoMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     
                 }
@@ -194,18 +195,18 @@ namespace CuraDocs
             clsGlobal.nAction = 2;
             datacontext.spInsDelValUsuarioTipoTramite(TBValidarUsuario.Text.ToString(), Convert.ToInt32(TBValidarTipoTramite.Text), clsGlobal.nAction);
             LoadTramiteUsuario();
-            dgvTipoTramite.ClearSelection();
-            dgvUsuarioTipoTramite.ClearSelection();
+            DGVTipoTramite.ClearSelection();
+            DGVUsuarioTipoTramite.ClearSelection();
             BTNDel.Enabled = false;
-            MessageBox.Show("Tramite eliminado.", "CuraDocs - Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Trámite eliminado.", clsGlobal.sTextoInformativoMarcoMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void dgvUsuarioTipoTramite_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             BTNAdd.Enabled = false;
             BTNDel.Enabled = true;
-            dgvTipoTramite.ClearSelection();
-            TBValidarTipoTramite.Text = dgvUsuarioTipoTramite.CurrentRow.Cells[1].Value.ToString();
+            DGVTipoTramite.ClearSelection();
+            TBValidarTipoTramite.Text = DGVUsuarioTipoTramite.CurrentRow.Cells[1].Value.ToString();
         }
     }
 }

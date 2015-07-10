@@ -71,13 +71,13 @@ namespace CuraDocs
             bool estado;
             if (string.IsNullOrEmpty(txtUsuario.Text) || string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrEmpty(txtPass.Text) || string.IsNullOrEmpty(txtRepetir.Text) || string.IsNullOrEmpty(txtCorreo.Text))
             {
-                MessageBox.Show("Debe completar todos los campos.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Debe completar todos los campos.", clsGlobal.sTextoInformativoMarcoMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
                 if (!txtPass.Text.Equals(txtRepetir.Text))
                 {
-                    MessageBox.Show("Las contraseñas ingresadas no coinciden.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Las contraseñas ingresadas no coinciden.", clsGlobal.sTextoInformativoMarcoMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
@@ -90,7 +90,7 @@ namespace CuraDocs
                     {
                         datacontext.spEditarUsuarios(txtUsuario.Text, txtNombre.Text, Convert.ToInt32(cbPerfil.SelectedValue), txtPass.Text, lblUsuario.Text, estado,txtCorreo.Text);
                     }
-                    MessageBox.Show("Usuario Guardado Correctamente.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Usuario guardado correctamente.", clsGlobal.sTextoInformativoMarcoMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     bloquearCampos();
                 }
             }

@@ -116,7 +116,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(314, 213);
+            this.label2.Location = new System.Drawing.Point(276, 213);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(84, 13);
             this.label2.TabIndex = 4;
@@ -124,7 +124,7 @@
             // 
             // txtNroRadicacion
             // 
-            this.txtNroRadicacion.Location = new System.Drawing.Point(404, 210);
+            this.txtNroRadicacion.Location = new System.Drawing.Point(366, 210);
             this.txtNroRadicacion.Name = "txtNroRadicacion";
             this.txtNroRadicacion.Size = new System.Drawing.Size(100, 20);
             this.txtNroRadicacion.TabIndex = 1;
@@ -132,7 +132,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(333, 239);
+            this.button1.Location = new System.Drawing.Point(295, 239);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(153, 23);
             this.button1.TabIndex = 2;
@@ -142,7 +142,7 @@
             // 
             // txtExaminar
             // 
-            this.txtExaminar.Location = new System.Drawing.Point(204, 288);
+            this.txtExaminar.Location = new System.Drawing.Point(166, 288);
             this.txtExaminar.Name = "txtExaminar";
             this.txtExaminar.ReadOnly = true;
             this.txtExaminar.Size = new System.Drawing.Size(238, 20);
@@ -151,7 +151,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(152, 291);
+            this.label3.Location = new System.Drawing.Point(114, 291);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(46, 13);
             this.label3.TabIndex = 8;
@@ -160,7 +160,7 @@
             // btnExaminar
             // 
             this.btnExaminar.Enabled = false;
-            this.btnExaminar.Location = new System.Drawing.Point(443, 286);
+            this.btnExaminar.Location = new System.Drawing.Point(405, 286);
             this.btnExaminar.Name = "btnExaminar";
             this.btnExaminar.Size = new System.Drawing.Size(75, 23);
             this.btnExaminar.TabIndex = 4;
@@ -171,7 +171,7 @@
             // btnGuardar
             // 
             this.btnGuardar.Enabled = false;
-            this.btnGuardar.Location = new System.Drawing.Point(547, 285);
+            this.btnGuardar.Location = new System.Drawing.Point(509, 285);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(120, 23);
             this.btnGuardar.TabIndex = 5;
@@ -186,7 +186,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dgvTipoDocumentos);
-            this.groupBox1.Location = new System.Drawing.Point(155, 326);
+            this.groupBox1.Location = new System.Drawing.Point(117, 326);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(512, 202);
             this.groupBox1.TabIndex = 11;
@@ -237,7 +237,7 @@
             // 
             // btnTerminar
             // 
-            this.btnTerminar.Location = new System.Drawing.Point(673, 480);
+            this.btnTerminar.Location = new System.Drawing.Point(644, 484);
             this.btnTerminar.Name = "btnTerminar";
             this.btnTerminar.Size = new System.Drawing.Size(93, 38);
             this.btnTerminar.TabIndex = 6;
@@ -333,7 +333,7 @@
             // lblEtiquetaTramite
             // 
             this.lblEtiquetaTramite.AutoSize = true;
-            this.lblEtiquetaTramite.Location = new System.Drawing.Point(544, 213);
+            this.lblEtiquetaTramite.Location = new System.Drawing.Point(506, 213);
             this.lblEtiquetaTramite.Name = "lblEtiquetaTramite";
             this.lblEtiquetaTramite.Size = new System.Drawing.Size(69, 13);
             this.lblEtiquetaTramite.TabIndex = 14;
@@ -343,7 +343,7 @@
             // lblTipoTramite
             // 
             this.lblTipoTramite.AutoSize = true;
-            this.lblTipoTramite.Location = new System.Drawing.Point(620, 213);
+            this.lblTipoTramite.Location = new System.Drawing.Point(582, 213);
             this.lblTipoTramite.Name = "lblTipoTramite";
             this.lblTipoTramite.Size = new System.Drawing.Size(35, 13);
             this.lblTipoTramite.TabIndex = 15;
@@ -353,7 +353,7 @@
             // lblIdTipoTramite
             // 
             this.lblIdTipoTramite.AutoSize = true;
-            this.lblIdTipoTramite.Location = new System.Drawing.Point(620, 239);
+            this.lblIdTipoTramite.Location = new System.Drawing.Point(582, 239);
             this.lblIdTipoTramite.Name = "lblIdTipoTramite";
             this.lblIdTipoTramite.Size = new System.Drawing.Size(72, 13);
             this.lblIdTipoTramite.TabIndex = 16;
@@ -385,8 +385,9 @@
             this.ForeColor = System.Drawing.Color.Black;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmDigitalizacion";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Digitalizacion de Documentos";
+            this.Text = "CuraDocs - Digitalización de Documentos";
             this.Load += new System.EventHandler(this.frmDigitalizacion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);

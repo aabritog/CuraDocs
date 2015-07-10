@@ -41,6 +41,7 @@
             this.notificaciones = new System.Windows.Forms.ToolStripMenuItem();
             this.activar = new System.Windows.Forms.ToolStripMenuItem();
             this.desactivar = new System.Windows.Forms.ToolStripMenuItem();
+            this.configurarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblFecha = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -49,7 +50,9 @@
             this.lblUsuario = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.configurarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblHora = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.CerrarSesion = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.menu.SuspendLayout();
@@ -95,7 +98,8 @@
             this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.digitalizaciónDeDocumentos,
             this.consultaDeDocumentos,
-            this.administración});
+            this.administración,
+            this.CerrarSesion});
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Name = "menu";
             this.menu.Size = new System.Drawing.Size(784, 39);
@@ -148,20 +152,29 @@
             // activar
             // 
             this.activar.Name = "activar";
-            this.activar.Size = new System.Drawing.Size(152, 22);
+            this.activar.Size = new System.Drawing.Size(133, 22);
             this.activar.Text = "Activar";
             this.activar.Click += new System.EventHandler(this.activarToolStripMenuItem_Click);
             // 
             // desactivar
             // 
             this.desactivar.Name = "desactivar";
-            this.desactivar.Size = new System.Drawing.Size(152, 22);
+            this.desactivar.Size = new System.Drawing.Size(133, 22);
             this.desactivar.Text = "Desactivar";
             this.desactivar.Click += new System.EventHandler(this.desactivarToolStripMenuItem_Click);
+            // 
+            // configurarToolStripMenuItem
+            // 
+            this.configurarToolStripMenuItem.Name = "configurarToolStripMenuItem";
+            this.configurarToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.configurarToolStripMenuItem.Text = "Configurar";
+            this.configurarToolStripMenuItem.Click += new System.EventHandler(this.configurarToolStripMenuItem_Click);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Blue;
+            this.panel2.Controls.Add(this.lblHora);
+            this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.lblFecha);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.lblAdministrador);
@@ -178,18 +191,18 @@
             this.lblFecha.AutoSize = true;
             this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFecha.ForeColor = System.Drawing.Color.White;
-            this.lblFecha.Location = new System.Drawing.Point(608, 2);
+            this.lblFecha.Location = new System.Drawing.Point(503, 3);
             this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(62, 16);
+            this.lblFecha.Size = new System.Drawing.Size(58, 16);
             this.lblFecha.TabIndex = 5;
-            this.lblFecha.Text = "FECHA:";
+            this.lblFecha.Text = "FECHA";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(549, 3);
+            this.label6.Location = new System.Drawing.Point(445, 3);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(62, 16);
             this.label6.TabIndex = 4;
@@ -200,7 +213,7 @@
             this.lblAdministrador.AutoSize = true;
             this.lblAdministrador.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAdministrador.ForeColor = System.Drawing.Color.White;
-            this.lblAdministrador.Location = new System.Drawing.Point(352, 2);
+            this.lblAdministrador.Location = new System.Drawing.Point(280, 3);
             this.lblAdministrador.Name = "lblAdministrador";
             this.lblAdministrador.Size = new System.Drawing.Size(134, 16);
             this.lblAdministrador.TabIndex = 3;
@@ -211,7 +224,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(306, 2);
+            this.label5.Location = new System.Drawing.Point(240, 3);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(42, 16);
             this.label5.TabIndex = 2;
@@ -222,7 +235,7 @@
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuario.ForeColor = System.Drawing.Color.White;
-            this.lblUsuario.Location = new System.Drawing.Point(95, 3);
+            this.lblUsuario.Location = new System.Drawing.Point(87, 3);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(80, 16);
             this.lblUsuario.TabIndex = 1;
@@ -243,12 +256,35 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // configurarToolStripMenuItem
+            // lblHora
             // 
-            this.configurarToolStripMenuItem.Name = "configurarToolStripMenuItem";
-            this.configurarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.configurarToolStripMenuItem.Text = "Configurar";
-            this.configurarToolStripMenuItem.Click += new System.EventHandler(this.configurarToolStripMenuItem_Click);
+            this.lblHora.AutoSize = true;
+            this.lblHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHora.ForeColor = System.Drawing.Color.White;
+            this.lblHora.Location = new System.Drawing.Point(694, 3);
+            this.lblHora.Name = "lblHora";
+            this.lblHora.Size = new System.Drawing.Size(51, 16);
+            this.lblHora.TabIndex = 7;
+            this.lblHora.Text = "HORA";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(642, 3);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(55, 16);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "HORA:";
+            // 
+            // CerrarSesion
+            // 
+            this.CerrarSesion.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CerrarSesion.Name = "CerrarSesion";
+            this.CerrarSesion.Size = new System.Drawing.Size(93, 35);
+            this.CerrarSesion.Text = "Cerrar Sesión";
+            this.CerrarSesion.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 
@@ -262,8 +298,9 @@
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmPrincipal";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Menú Principal";
+            this.Text = "CuraDocs - Menú Principal";
             this.Load += new System.EventHandler(this.frmPrincipal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -299,5 +336,8 @@
         private System.Windows.Forms.ToolStripMenuItem activar;
         private System.Windows.Forms.ToolStripMenuItem desactivar;
         private System.Windows.Forms.ToolStripMenuItem configurarToolStripMenuItem;
+        private System.Windows.Forms.Label lblHora;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ToolStripMenuItem CerrarSesion;
     }
 }

@@ -19,8 +19,15 @@ namespace CuraDocs
        public static bool admTermino=false;
        public static string accion = string.Empty;
        public static bool notificaciones;
-       public static int nAction;
        public static string admCorreo = string.Empty;
+
+       //Variable para indicar el tipo de accion a ejecutar cuando se invoca el Store Procedure spInsDelValUsuarioTipoTramite.
+       public static int nAction;
+
+       //Constante para el texto ubicado en el borde de la caja de mensaje informativo (MessageBox).
+       public static string sTextoInformativoMarcoMessageBox = "CuraDocs - Información";
+       //Constante para el texto ubicado en el borde de la caja de mensaje de error (MessageBox).
+       public static string sTextoErrorMarcoMessageBox = "CuraDocs - Error";
             
     }
 }

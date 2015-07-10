@@ -514,6 +514,33 @@ namespace CapaDatos
     
             return base.ExecuteFunction<spGetCorreosNotificacion_Result>("spGetCorreosNotificacion", idTipoTramiteParameter);
         }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        public ObjectResult<spGetOpcSistema_Result> spGetOpcSistema()
+        {
+            return base.ExecuteFunction<spGetOpcSistema_Result>("spGetOpcSistema");
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        /// <param name="nNotificacionMail">No hay documentación de metadatos disponible.</param>
+        public int spUpdOpcSistema(Nullable<global::System.Int32> nNotificacionMail)
+        {
+            ObjectParameter nNotificacionMailParameter;
+            if (nNotificacionMail.HasValue)
+            {
+                nNotificacionMailParameter = new ObjectParameter("nNotificacionMail", nNotificacionMail);
+            }
+            else
+            {
+                nNotificacionMailParameter = new ObjectParameter("nNotificacionMail", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction("spUpdOpcSistema", nNotificacionMailParameter);
+        }
 
         #endregion
 
@@ -1221,6 +1248,299 @@ namespace CapaDatos
         private global::System.String _NombreFormulario;
         partial void OnNombreFormularioChanging(global::System.String value);
         partial void OnNombreFormularioChanged();
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No hay documentación de metadatos disponible.
+    /// </summary>
+    [EdmComplexTypeAttribute(NamespaceName="CuraduriaModel", Name="spGetOpcSistema_Result")]
+    [DataContractAttribute(IsReference=true)]
+    [Serializable()]
+    public partial class spGetOpcSistema_Result : ComplexObject
+    {
+        #region Método de generador
+    
+        /// <summary>
+        /// Crear un nuevo objeto spGetOpcSistema_Result.
+        /// </summary>
+        /// <param name="nId">Valor inicial de la propiedad nId.</param>
+        public static spGetOpcSistema_Result CreatespGetOpcSistema_Result(global::System.Int32 nId)
+        {
+            spGetOpcSistema_Result spGetOpcSistema_Result = new spGetOpcSistema_Result();
+            spGetOpcSistema_Result.nId = nId;
+            return spGetOpcSistema_Result;
+        }
+
+        #endregion
+
+        #region Propiedades primitivas
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 nId
+        {
+            get
+            {
+                return _nId;
+            }
+            set
+            {
+                OnnIdChanging(value);
+                ReportPropertyChanging("nId");
+                _nId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("nId");
+                OnnIdChanged();
+            }
+        }
+        private global::System.Int32 _nId;
+        partial void OnnIdChanging(global::System.Int32 value);
+        partial void OnnIdChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> nNotificacionMail
+        {
+            get
+            {
+                return _nNotificacionMail;
+            }
+            set
+            {
+                OnnNotificacionMailChanging(value);
+                ReportPropertyChanging("nNotificacionMail");
+                _nNotificacionMail = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("nNotificacionMail");
+                OnnNotificacionMailChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _nNotificacionMail;
+        partial void OnnNotificacionMailChanging(Nullable<global::System.Int32> value);
+        partial void OnnNotificacionMailChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String sFromMail
+        {
+            get
+            {
+                return _sFromMail;
+            }
+            set
+            {
+                OnsFromMailChanging(value);
+                ReportPropertyChanging("sFromMail");
+                _sFromMail = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("sFromMail");
+                OnsFromMailChanged();
+            }
+        }
+        private global::System.String _sFromMail;
+        partial void OnsFromMailChanging(global::System.String value);
+        partial void OnsFromMailChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String sSubjectMail
+        {
+            get
+            {
+                return _sSubjectMail;
+            }
+            set
+            {
+                OnsSubjectMailChanging(value);
+                ReportPropertyChanging("sSubjectMail");
+                _sSubjectMail = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("sSubjectMail");
+                OnsSubjectMailChanged();
+            }
+        }
+        private global::System.String _sSubjectMail;
+        partial void OnsSubjectMailChanging(global::System.String value);
+        partial void OnsSubjectMailChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String sBodyMail
+        {
+            get
+            {
+                return _sBodyMail;
+            }
+            set
+            {
+                OnsBodyMailChanging(value);
+                ReportPropertyChanging("sBodyMail");
+                _sBodyMail = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("sBodyMail");
+                OnsBodyMailChanged();
+            }
+        }
+        private global::System.String _sBodyMail;
+        partial void OnsBodyMailChanging(global::System.String value);
+        partial void OnsBodyMailChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String sUserNameCredentialsMail
+        {
+            get
+            {
+                return _sUserNameCredentialsMail;
+            }
+            set
+            {
+                OnsUserNameCredentialsMailChanging(value);
+                ReportPropertyChanging("sUserNameCredentialsMail");
+                _sUserNameCredentialsMail = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("sUserNameCredentialsMail");
+                OnsUserNameCredentialsMailChanged();
+            }
+        }
+        private global::System.String _sUserNameCredentialsMail;
+        partial void OnsUserNameCredentialsMailChanging(global::System.String value);
+        partial void OnsUserNameCredentialsMailChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String sPasswordCredentialsMail
+        {
+            get
+            {
+                return _sPasswordCredentialsMail;
+            }
+            set
+            {
+                OnsPasswordCredentialsMailChanging(value);
+                ReportPropertyChanging("sPasswordCredentialsMail");
+                _sPasswordCredentialsMail = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("sPasswordCredentialsMail");
+                OnsPasswordCredentialsMailChanged();
+            }
+        }
+        private global::System.String _sPasswordCredentialsMail;
+        partial void OnsPasswordCredentialsMailChanging(global::System.String value);
+        partial void OnsPasswordCredentialsMailChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String sHostMail
+        {
+            get
+            {
+                return _sHostMail;
+            }
+            set
+            {
+                OnsHostMailChanging(value);
+                ReportPropertyChanging("sHostMail");
+                _sHostMail = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("sHostMail");
+                OnsHostMailChanged();
+            }
+        }
+        private global::System.String _sHostMail;
+        partial void OnsHostMailChanging(global::System.String value);
+        partial void OnsHostMailChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> nPortMail
+        {
+            get
+            {
+                return _nPortMail;
+            }
+            set
+            {
+                OnnPortMailChanging(value);
+                ReportPropertyChanging("nPortMail");
+                _nPortMail = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("nPortMail");
+                OnnPortMailChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _nPortMail;
+        partial void OnnPortMailChanging(Nullable<global::System.Int32> value);
+        partial void OnnPortMailChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> bEnableSsl
+        {
+            get
+            {
+                return _bEnableSsl;
+            }
+            set
+            {
+                OnbEnableSslChanging(value);
+                ReportPropertyChanging("bEnableSsl");
+                _bEnableSsl = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("bEnableSsl");
+                OnbEnableSslChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _bEnableSsl;
+        partial void OnbEnableSslChanging(Nullable<global::System.Boolean> value);
+        partial void OnbEnableSslChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String sCcMail
+        {
+            get
+            {
+                return _sCcMail;
+            }
+            set
+            {
+                OnsCcMailChanging(value);
+                ReportPropertyChanging("sCcMail");
+                _sCcMail = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("sCcMail");
+                OnsCcMailChanged();
+            }
+        }
+        private global::System.String _sCcMail;
+        partial void OnsCcMailChanging(global::System.String value);
+        partial void OnsCcMailChanged();
 
         #endregion
 

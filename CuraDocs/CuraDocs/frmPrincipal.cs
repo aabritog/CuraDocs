@@ -49,7 +49,8 @@ namespace CuraDocs
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            lblFecha.Text = DateTime.Now.ToString();
+            lblFecha.Text = DateTime.Now.ToShortDateString();
+            lblHora.Text = DateTime.Now.ToString("HH:mm:ss");
         }
 
         private void CrearMenu()
@@ -84,20 +85,29 @@ namespace CuraDocs
 
         private void activarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            clsGlobal.notificaciones = true;
-            MessageBox.Show("Envio de Notificaciones se ha Activado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //Se activa el envio de notificaciones
+            datacontext.spUpdOpcSistema(1);
+            MessageBox.Show("Envio de notificaciones activado.", clsGlobal.sTextoInformativoMarcoMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void desactivarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            clsGlobal.notificaciones = false;
-            MessageBox.Show("Envio de Notificaciones se ha Desactivado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //Se desactiva el envio de notificaciones
+            datacontext.spUpdOpcSistema(2);
+            MessageBox.Show("Envio de notificaciones desactivado.", clsGlobal.sTextoInformativoMarcoMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void configurarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmNotificacionUsuario form = new frmNotificacionUsuario();
             form.ShowDialog();
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form1 form = new Form1();
+            form.ShowInTaskbar = true;
+            this.Dispose();
         }
     }
 }

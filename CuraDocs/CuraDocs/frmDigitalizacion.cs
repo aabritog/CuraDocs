@@ -17,7 +17,12 @@ namespace CuraDocs
     public partial class frmDigitalizacion : Form
     {
         public bool cargo = false;
+        
+        public int nNotificacionMail = 0;
+
         CuraduriaEntities1 datacontext = new CuraduriaEntities1();
+
+        
         public frmDigitalizacion()
         {
             InitializeComponent();
@@ -64,21 +69,25 @@ namespace CuraDocs
                 btnExaminar.Enabled = true;
                 btnGuardar.Enabled = true;
                 panel1.Visible = true;
-                btnTerminar.Visible = true;
+                //btnTerminar.Visible = true;
                 button1.Enabled = false;
                 //dgvTipoDocumentos.Visible = true;
                 //groupBox1.Visible = true;
             }
             else
             {
-                MessageBox.Show("El número de Radicación ingresado no se encuentra en la base", "Error");
+                MessageBox.Show("El número de radicación ingresado no se encuentra en la base de datos.", clsGlobal.sTextoErrorMarcoMessageBox);
 
             }
         }
 
         private void frmDigitalizacion_Load(object sender, EventArgs e)
         {
-            txtNroRadicacion.Focus();
+            
+            List<spGetOpcSistema_Result> listOpcSistema = new List<spGetOpcSistema_Result>();
+            listOpcSistema = datacontext.spGetOpcSistema().ToList();
+            nNotificacionMail = Convert.ToInt32(listOpcSistema.FirstOrDefault().nNotificacionMail);
+
 
             List<spBuscarTipoDocumento_Result> lista=new List<spBuscarTipoDocumento_Result>();
             lista=datacontext.spBuscarTipoDocumento().ToList();
@@ -107,12 +116,13 @@ namespace CuraDocs
                     
                         txtExaminar.Text = this.openFileDialog1.FileName;
                         groupBox1.Visible = true;
+                        btnTerminar.Visible = true;
                                         
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error");
+                MessageBox.Show(ex.Message, clsGlobal.sTextoErrorMarcoMessageBox);
             }
         }
 
@@ -151,17 +161,17 @@ namespace CuraDocs
 
                 if (!cont)
                 {
-                    MessageBox.Show("Debe Seleccionar un tipo de Documento", "Mensaje");
+                    MessageBox.Show("Debe Seleccionar un tipo de Documento", clsGlobal.sTextoInformativoMarcoMessageBox);
                 }
                 else
                 {
-                    MessageBox.Show("Documento cargado exitosamente", "Mensaje");
+                    MessageBox.Show("Documento cargado exitosamente", clsGlobal.sTextoInformativoMarcoMessageBox);
                     txtExaminar.Text = string.Empty;
                 }
             }
             else
             {
-                MessageBox.Show("Debe seleccionar un documento", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Debe seleccionar un documento", clsGlobal.sTextoErrorMarcoMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -169,33 +179,45 @@ namespace CuraDocs
         {
             try
             {
-                if (cargo && clsGlobal.notificaciones)
+                if (cargo && nNotificacionMail == 1)
+                //if (cargo && clsGlobal.notificaciones)
                 {
+                    List<spGetOpcSistema_Result> listOpcSistema = new List<spGetOpcSistema_Result>();
+                    listOpcSistema = datacontext.spGetOpcSistema().ToList();
+//                    nNotificacionMail = Convert.ToInt32(listOpcSistema.FirstOrDefault().nNotificacionMail);
+
+
+
                     List<spGetCorreosNotificacion_Result> lstCorreos = new List<spGetCorreosNotificacion_Result>();
                     lstCorreos = datacontext.spGetCorreosNotificacion(Convert.ToInt32(lblIdTipoTramite.Text)).ToList();
                     foreach (spGetCorreosNotificacion_Result correo in lstCorreos)
                     {
                         MailMessage _correo = new MailMessage();
-                        _correo.From = new MailAddress("ing.antonyab@gmail.com");
-                        _correo.To.Add(correo.Correo.ToString());
-                        _correo.Subject = "Notificacion de CuraDocs Nro Solicitud: " + txtNroRadicacion.Text.ToString();
-                        _correo.CC.Add(new MailAddress("ing.aabg@gmail.com"));
-                        _correo.Body = "Esto es una prueba de envio de notificaciones de CuraDocs /n La Solicitud " + txtNroRadicacion.Text.ToString() + " se le han digitalizado imagenes para se evaluacion";
-                        _correo.IsBodyHtml = false;
-                        _correo.Priority = MailPriority.Normal;
-
                         SmtpClient smtp = new SmtpClient();
-                        smtp.Credentials = new NetworkCredential("ing.antonyab", "anto.1907");
+                        _correo.Priority = MailPriority.Normal;
+                        _correo.From = new MailAddress(listOpcSistema.FirstOrDefault().sFromMail.ToString());
+                        _correo.IsBodyHtml = false;
+                        _correo.To.Add(correo.Correo.ToString());
+                        _correo.Subject = listOpcSistema.FirstOrDefault().sSubjectMail.ToString().Replace("txtNroRadicacion", txtNroRadicacion.Text.ToString());
+
+                        if (!string.IsNullOrEmpty(listOpcSistema.FirstOrDefault().sCcMail.ToString()))
+                        {
+                            _correo.CC.Add(new MailAddress(listOpcSistema.FirstOrDefault().sCcMail.ToString()));
+                        }
+
+
+                        _correo.Body = listOpcSistema.FirstOrDefault().sBodyMail.ToString().Replace("NewLine", System.Environment.NewLine.ToString()); //Se agregan los saltos de linea.
+                        _correo.Body = _correo.Body.ToString().Replace("txtNroRadicacion", txtNroRadicacion.Text.ToString()); //Se agrega el número de radicación.
+                        smtp.Credentials = new NetworkCredential(listOpcSistema.FirstOrDefault().sUserNameCredentialsMail.ToString(), listOpcSistema.FirstOrDefault().sPasswordCredentialsMail.ToString());
                         //smtp.UseDefaultCredentials = false;
-                        smtp.Host = "smtp.gmail.com";
-                        smtp.Port = 587;
+                        smtp.Host = listOpcSistema.FirstOrDefault().sHostMail.ToString();
+                        smtp.Port = Convert.ToInt32(listOpcSistema.FirstOrDefault().nPortMail);
                         smtp.EnableSsl = true;
-
                         smtp.Send(_correo);
-                        MessageBox.Show("Correo Enviado Correctamente", "Mensaje");
+                        //Se envia correo a profesionales.
                     }
-                    // aqui se envia correo a profesionales....
-
+                    
+                    MessageBox.Show("Correo enviado correctamente", clsGlobal.sTextoInformativoMarcoMessageBox);
                 }
 
                 groupBox1.Visible = false;
@@ -219,7 +241,7 @@ namespace CuraDocs
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK);
+                MessageBox.Show(ex.Message, clsGlobal.sTextoErrorMarcoMessageBox, MessageBoxButtons.OK);
             }
 
         }

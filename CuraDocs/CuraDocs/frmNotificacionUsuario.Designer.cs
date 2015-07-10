@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNotificacionUsuario));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnLimpiar = new System.Windows.Forms.Button();
-            this.btnSalir = new System.Windows.Forms.Button();
-            this.cbUsuario = new System.Windows.Forms.ComboBox();
+            this.BTNLimpiar = new System.Windows.Forms.Button();
+            this.BTNSalir = new System.Windows.Forms.Button();
+            this.CBUsuario = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblNombreCompleto = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dgvTipoTramite = new System.Windows.Forms.DataGridView();
+            this.DGVTipoTramite = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dgvUsuarioTipoTramite = new System.Windows.Forms.DataGridView();
+            this.DGVUsuarioTipoTramite = new System.Windows.Forms.DataGridView();
             this.BTNAdd = new System.Windows.Forms.Button();
             this.BTNDel = new System.Windows.Forms.Button();
             this.lblPerfil = new System.Windows.Forms.Label();
@@ -52,9 +52,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTipoTramite)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVTipoTramite)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarioTipoTramite)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVUsuarioTipoTramite)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -70,53 +70,53 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnLimpiar);
-            this.panel1.Controls.Add(this.btnSalir);
+            this.panel1.Controls.Add(this.BTNLimpiar);
+            this.panel1.Controls.Add(this.BTNSalir);
             this.panel1.Location = new System.Drawing.Point(0, 149);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(784, 39);
             this.panel1.TabIndex = 4;
             // 
-            // btnLimpiar
+            // BTNLimpiar
             // 
-            this.btnLimpiar.BackColor = System.Drawing.Color.Blue;
-            this.btnLimpiar.FlatAppearance.BorderSize = 0;
-            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLimpiar.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpiar.ForeColor = System.Drawing.Color.White;
-            this.btnLimpiar.Location = new System.Drawing.Point(0, 0);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(140, 39);
-            this.btnLimpiar.TabIndex = 19;
-            this.btnLimpiar.Text = "Limpiar";
-            this.btnLimpiar.UseVisualStyleBackColor = false;
-            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            this.BTNLimpiar.BackColor = System.Drawing.Color.Blue;
+            this.BTNLimpiar.FlatAppearance.BorderSize = 0;
+            this.BTNLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTNLimpiar.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BTNLimpiar.ForeColor = System.Drawing.Color.White;
+            this.BTNLimpiar.Location = new System.Drawing.Point(0, 0);
+            this.BTNLimpiar.Name = "BTNLimpiar";
+            this.BTNLimpiar.Size = new System.Drawing.Size(140, 39);
+            this.BTNLimpiar.TabIndex = 19;
+            this.BTNLimpiar.Text = "Limpiar";
+            this.BTNLimpiar.UseVisualStyleBackColor = false;
+            this.BTNLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
-            // btnSalir
+            // BTNSalir
             // 
-            this.btnSalir.BackColor = System.Drawing.Color.Red;
-            this.btnSalir.FlatAppearance.BorderSize = 0;
-            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalir.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.ForeColor = System.Drawing.Color.White;
-            this.btnSalir.Location = new System.Drawing.Point(644, 0);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(140, 39);
-            this.btnSalir.TabIndex = 0;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = false;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            this.BTNSalir.BackColor = System.Drawing.Color.Red;
+            this.BTNSalir.FlatAppearance.BorderSize = 0;
+            this.BTNSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTNSalir.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BTNSalir.ForeColor = System.Drawing.Color.White;
+            this.BTNSalir.Location = new System.Drawing.Point(644, 0);
+            this.BTNSalir.Name = "BTNSalir";
+            this.BTNSalir.Size = new System.Drawing.Size(140, 39);
+            this.BTNSalir.TabIndex = 0;
+            this.BTNSalir.Text = "Salir";
+            this.BTNSalir.UseVisualStyleBackColor = false;
+            this.BTNSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // cbUsuario
+            // CBUsuario
             // 
-            this.cbUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbUsuario.FormattingEnabled = true;
-            this.cbUsuario.Location = new System.Drawing.Point(77, 215);
-            this.cbUsuario.Name = "cbUsuario";
-            this.cbUsuario.Size = new System.Drawing.Size(212, 21);
-            this.cbUsuario.TabIndex = 9;
-            this.cbUsuario.SelectionChangeCommitted += new System.EventHandler(this.cbUsuario_SelectionChangeCommitted);
-            this.cbUsuario.SelectedValueChanged += new System.EventHandler(this.cbUsuario_SelectedValueChanged);
+            this.CBUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBUsuario.FormattingEnabled = true;
+            this.CBUsuario.Location = new System.Drawing.Point(77, 215);
+            this.CBUsuario.Name = "CBUsuario";
+            this.CBUsuario.Size = new System.Drawing.Size(212, 21);
+            this.CBUsuario.TabIndex = 9;
+            this.CBUsuario.SelectionChangeCommitted += new System.EventHandler(this.cbUsuario_SelectionChangeCommitted);
+            this.CBUsuario.SelectedValueChanged += new System.EventHandler(this.cbUsuario_SelectedValueChanged);
             // 
             // label2
             // 
@@ -147,7 +147,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dgvTipoTramite);
+            this.groupBox1.Controls.Add(this.DGVTipoTramite);
             this.groupBox1.Location = new System.Drawing.Point(12, 313);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(356, 202);
@@ -155,30 +155,30 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tramites en sistema:";
             // 
-            // dgvTipoTramite
+            // DGVTipoTramite
             // 
-            this.dgvTipoTramite.AllowUserToAddRows = false;
-            this.dgvTipoTramite.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvTipoTramite.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvTipoTramite.BackgroundColor = System.Drawing.Color.White;
-            this.dgvTipoTramite.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dgvTipoTramite.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTipoTramite.Enabled = false;
-            this.dgvTipoTramite.GridColor = System.Drawing.SystemColors.MenuHighlight;
-            this.dgvTipoTramite.Location = new System.Drawing.Point(6, 19);
-            this.dgvTipoTramite.MultiSelect = false;
-            this.dgvTipoTramite.Name = "dgvTipoTramite";
-            this.dgvTipoTramite.ReadOnly = true;
-            this.dgvTipoTramite.RowHeadersVisible = false;
-            this.dgvTipoTramite.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTipoTramite.Size = new System.Drawing.Size(344, 177);
-            this.dgvTipoTramite.TabIndex = 0;
-            this.dgvTipoTramite.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTipoTramite_CellClick);
+            this.DGVTipoTramite.AllowUserToAddRows = false;
+            this.DGVTipoTramite.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DGVTipoTramite.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.DGVTipoTramite.BackgroundColor = System.Drawing.Color.White;
+            this.DGVTipoTramite.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.DGVTipoTramite.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGVTipoTramite.Enabled = false;
+            this.DGVTipoTramite.GridColor = System.Drawing.SystemColors.MenuHighlight;
+            this.DGVTipoTramite.Location = new System.Drawing.Point(6, 19);
+            this.DGVTipoTramite.MultiSelect = false;
+            this.DGVTipoTramite.Name = "DGVTipoTramite";
+            this.DGVTipoTramite.ReadOnly = true;
+            this.DGVTipoTramite.RowHeadersVisible = false;
+            this.DGVTipoTramite.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DGVTipoTramite.Size = new System.Drawing.Size(344, 177);
+            this.DGVTipoTramite.TabIndex = 0;
+            this.DGVTipoTramite.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTipoTramite_CellClick);
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.dgvUsuarioTipoTramite);
+            this.groupBox2.Controls.Add(this.DGVUsuarioTipoTramite);
             this.groupBox2.Location = new System.Drawing.Point(416, 313);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(356, 202);
@@ -186,26 +186,26 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tramites que puede gestionar el usuario:";
             // 
-            // dgvUsuarioTipoTramite
+            // DGVUsuarioTipoTramite
             // 
-            this.dgvUsuarioTipoTramite.AllowUserToAddRows = false;
-            this.dgvUsuarioTipoTramite.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvUsuarioTipoTramite.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvUsuarioTipoTramite.BackgroundColor = System.Drawing.Color.White;
-            this.dgvUsuarioTipoTramite.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dgvUsuarioTipoTramite.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUsuarioTipoTramite.Enabled = false;
-            this.dgvUsuarioTipoTramite.GridColor = System.Drawing.SystemColors.MenuHighlight;
-            this.dgvUsuarioTipoTramite.Location = new System.Drawing.Point(6, 19);
-            this.dgvUsuarioTipoTramite.MultiSelect = false;
-            this.dgvUsuarioTipoTramite.Name = "dgvUsuarioTipoTramite";
-            this.dgvUsuarioTipoTramite.ReadOnly = true;
-            this.dgvUsuarioTipoTramite.RowHeadersVisible = false;
-            this.dgvUsuarioTipoTramite.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUsuarioTipoTramite.Size = new System.Drawing.Size(344, 177);
-            this.dgvUsuarioTipoTramite.TabIndex = 0;
-            this.dgvUsuarioTipoTramite.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarioTipoTramite_CellClick);
+            this.DGVUsuarioTipoTramite.AllowUserToAddRows = false;
+            this.DGVUsuarioTipoTramite.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DGVUsuarioTipoTramite.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.DGVUsuarioTipoTramite.BackgroundColor = System.Drawing.Color.White;
+            this.DGVUsuarioTipoTramite.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.DGVUsuarioTipoTramite.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGVUsuarioTipoTramite.Enabled = false;
+            this.DGVUsuarioTipoTramite.GridColor = System.Drawing.SystemColors.MenuHighlight;
+            this.DGVUsuarioTipoTramite.Location = new System.Drawing.Point(6, 19);
+            this.DGVUsuarioTipoTramite.MultiSelect = false;
+            this.DGVUsuarioTipoTramite.Name = "DGVUsuarioTipoTramite";
+            this.DGVUsuarioTipoTramite.ReadOnly = true;
+            this.DGVUsuarioTipoTramite.RowHeadersVisible = false;
+            this.DGVUsuarioTipoTramite.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DGVUsuarioTipoTramite.Size = new System.Drawing.Size(344, 177);
+            this.DGVUsuarioTipoTramite.TabIndex = 0;
+            this.DGVUsuarioTipoTramite.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarioTipoTramite_CellClick);
             // 
             // BTNAdd
             // 
@@ -283,19 +283,21 @@
             this.Controls.Add(this.lblNombreCompleto);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.cbUsuario);
+            this.Controls.Add(this.CBUsuario);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmNotificacionUsuario";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmNotificacionUsuario";
+            this.Text = "CuraDocs - Notificaciones a usuarios";
             this.Load += new System.EventHandler(this.frmNotificacionUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTipoTramite)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVTipoTramite)).EndInit();
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarioTipoTramite)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVUsuarioTipoTramite)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -305,20 +307,20 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.ComboBox cbUsuario;
+        private System.Windows.Forms.Button BTNSalir;
+        private System.Windows.Forms.ComboBox CBUsuario;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblNombreCompleto;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dgvTipoTramite;
+        private System.Windows.Forms.DataGridView DGVTipoTramite;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView dgvUsuarioTipoTramite;
+        private System.Windows.Forms.DataGridView DGVUsuarioTipoTramite;
         private System.Windows.Forms.Button BTNAdd;
         private System.Windows.Forms.Button BTNDel;
         private System.Windows.Forms.Label lblPerfil;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.Button BTNLimpiar;
         private System.Windows.Forms.TextBox TBValidarUsuario;
         private System.Windows.Forms.TextBox TBValidarTipoTramite;
 

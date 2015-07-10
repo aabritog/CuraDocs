@@ -42,12 +42,12 @@ namespace CuraDocs
 
                 if (dgvArchivos.Rows.Count <= 0)
                 {
-                    MessageBox.Show("La solicitud no tiene ningun docuemnto cargado.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("La solicitud no tiene ningun docuemnto cargado.", clsGlobal.sTextoInformativoMarcoMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else
             {
-                MessageBox.Show("El número de Radicación ingresado no se encuentra en la base", "Error");
+                MessageBox.Show("El número de Radicación ingresado no se encuentra en la base", clsGlobal.sTextoErrorMarcoMessageBox);
 
             }
         }

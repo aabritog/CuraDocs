@@ -69,7 +69,7 @@
             this.MinimizeBox = false;
             this.Name = "frmBuscar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Buscar";
+            this.Text = "CuraDocs - Buscar Usuario";
             this.Load += new System.EventHandler(this.frmBuscar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBuscar)).EndInit();
             this.ResumeLayout(false);
